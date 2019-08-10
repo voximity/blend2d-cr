@@ -11,6 +11,14 @@ module Blend2D::Geometry
             @core = LibBlend2D::BLCircle.new cx: @cx, cy: @cy, r: @r
         end
 
+        def initialize(center : Point, r : Float64)
+            initialize(center.x, center.y, r)
+        end
+
+        def center
+            Point.new x: cx, y: cy
+        end
+
         protected def type
             LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_CIRCLE
         end

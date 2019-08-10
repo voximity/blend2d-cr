@@ -1,6 +1,6 @@
 include Blend2D::C
 
-module Blend2D
+module Blend2D::Styling
     enum GradientType : UInt32
         Linear
         Radial

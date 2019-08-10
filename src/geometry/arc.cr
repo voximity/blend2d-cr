@@ -21,6 +21,14 @@ module Blend2D::Geometry
             @core = LibBlend2D::BLArc.new cx: @cx, cy: @cy, rx: @rx, ry: @ry, start: @start, sweep: @sweep
         end
 
+        def initialize(center : Point, rx : Float64, ry : Float64, start : Float64, sweep : Float64, arc_type : ArcType)
+            initialize(center.x, center.y, rx, ry, start, sweep, arc_type)
+        end
+
+        def center
+            Point.new x: cx, y: cy
+        end
+
         protected def pointer
             pointerof(@core)
         end

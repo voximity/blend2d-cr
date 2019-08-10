@@ -12,6 +12,14 @@ module Blend2D::Geometry
             @core = LibBlend2D::BLEllipse.new cx: @cx, cy: @cy, rx: @rx, ry: @ry
         end
 
+        def initialize(point : Point, rx : Float64, ry : Float64)
+            initialize(point.x, point.y, rx, ry)
+        end
+
+        def center
+            Point.new x: cx, y: cy
+        end
+
         protected def type
             LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_ELLIPSE
         end

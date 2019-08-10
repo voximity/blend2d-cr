@@ -1,4 +1,4 @@
-module Blend2D
+module Blend2D::Styling
     struct RGBA32
         getter r : UInt8
         getter g : UInt8

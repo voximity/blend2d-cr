@@ -12,6 +12,18 @@ module Blend2D::Geometry
             @core = LibBlend2D::BLLine.new x0: @x0, y0: @y0, x1: @x1, y1: @y1
         end
 
+        def initialize(a : Point, b : Point)
+            initialize(a.x, a.y, b.x, b.y)
+        end
+
+        def a
+            Point.new x: x0, y: y0
+        end
+
+        def b
+            Point.new x: x1, y: y1
+        end
+
         protected def type
             LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_LINE
         end

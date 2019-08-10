@@ -3,7 +3,7 @@ module Blend2D
 
         abstract def pointer : Pointer
 
-        # Called then Crystal's garbage collector collects this instance.
+        # Called when Crystal's garbage collector collects this instance.
         abstract def finalize
         
     end

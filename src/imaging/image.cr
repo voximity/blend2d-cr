@@ -1,6 +1,6 @@
 include Blend2D::C
 
-module Blend2D
+module Blend2D::Imaging
     # An Image is a structure provided by Blend2D that contains information about
     # a programmatic image that has data that is mutable.
     class Image < BLStructure

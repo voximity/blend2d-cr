@@ -1,4 +1,4 @@
-module Blend2D
+module Blend2D::Imaging
     class Codec < BLStructure
         def initialize
             @core = uninitialized LibBlend2D::BLImageCodecCore

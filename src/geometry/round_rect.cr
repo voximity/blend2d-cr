@@ -14,7 +14,7 @@ module Blend2D::Geometry
             @core = LibBlend2D::BLRoundRect.new x: @x, y: @y, w: @w, h: @h, rx: @rx, ry: @ry
         end
 
-        def initialize(x, y, w, h, r : Float64)
+        def initialize(x : Float64, y : Float64, w : Float64, h : Float64, r : Float64)
             initialize(x, y, w, h, r, r)
         end
 
