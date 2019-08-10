@@ -2,35 +2,35 @@ include Blend2D::C
 
 module Blend2D
     enum CompositionOperator : UInt32
-        SOURCE_OVER,
-        SOURCE_COPY,
-        SOURCE_IN,
-        SOURCE_OUT,
-        SOURCE_ATOP,
-        DESTINATION_OVER,
-        DESTINATION_COPY,
-        DESTINATION_IN,
-        DESTINATION_OUT,
-        DESTINATION_ATOP,
-        EXCLUSIVE_OR,
-        CLEAR,
-        PLUS,
-        MINUS,
-        MULTIPLY,
-        SCREEN,
-        OVERLAY,
-        DARKEN,
-        LIGHTEN,
-        COLOR_DODGE,
-        COLOR_BURN,
-        LINEAR_BURN,
-        LINEAR_LIGHT,
-        PIN_LIGHT,
-        HARD_LIGHT,
-        SOFT_LIGHT,
-        DIFFERENCE,
-        EXCLUSION,
-        COUNT
+        SourceOver
+        SourceCopy
+        SourceIn
+        SourceOut
+        SourceAtop
+        DestinationOver
+        DestinationCopy
+        DestinationIn
+        DestinationOut
+        DestinationAtop
+        ExclusiveOr
+        Clear
+        Plus
+        Minus
+        Multiply
+        Screen
+        Overlay
+        Darken
+        Lighten
+        ColorDodge
+        ColorBurn
+        LinearBurn
+        LinearLight
+        PinLight
+        HardLight
+        SoftLight
+        Difference
+        Exclusion
+        Count
     end
 
     class Context < BLStructure
@@ -77,49 +77,53 @@ module Blend2D
         # Set flatten tolerance
 
         # Set the composition operator of this context using `CompositionOperator`.
-        def set_composition_operator(operator : CompositionOperator)
+        def composition_operator=(operator : CompositionOperator)
             LibBlend2D.context_set_comp_op(pointer, operator)
         end
 
         # Set the global alpha of this context.
-        def set_global_alpha(alpha)
+        def global_alpha=(alpha)
             LibBlend2D.context_set_global_alpha(pointer, alpha)
         end
 
         # Set the fill alpha of this context.
-        def set_fill_alpha(alpha)
+        def fill_alpha=(alpha)
             LibBlend2D.context_set_fill_alpha(pointer, alpha)
         end
 
         # Set the fill color of this context using a color of `RGBA32`.
-        def set_fill_style(color : RGBA32)
+        def fill_style=(color : RGBA32)
             LibBlend2D.context_set_fill_style_rgba32(pointer, color.raw)
         end
 
         # Set the fill color of this context using a color of `RGBA64`.
-        def set_fill_style(color : RGBA64)
+        def fill_style=(color : RGBA64)
             LibBlend2D.context_set_fill_style_rgba64(pointer, color.raw)
+        end
+
+        def fill_style=(gradient : Gradient)
+            LibBlend2D.context_set_fill_style(pointer, gradient.pointer)
         end
 
         # set fill rule
 
-        def set_stroke_alpha(alpha)
+        def stroke_alpha=(alpha)
             LibBlend2D.context_set_stroke_alpha(pointer, alpha)
         end
 
-        def set_stroke_style(color : RGBA32)
+        def stroke_style=(color : RGBA32)
             LibBlend2D.context_set_stroke_style_rgba32(pointer, color.raw)
         end
 
-        def set_stroke_style(color : RGBA64)
+        def stroke_style=(color : RGBA64)
             LibBlend2D.context_set_stroke_style_rgba64(pointer, color.raw)
         end
 
-        def set_stroke_width(width)
+        def stroke_width=(width)
             LibBlend2D.context_set_stroke_width(pointer, width)
         end
 
-        def set_stroke_miter_limit(miter_limit)
+        def stroke_miter_limit=(miter_limit)
             LibBlend2D.context_set_stroke_miter_limit(pointer, miter_limit)
         end
 
@@ -129,7 +133,7 @@ module Blend2D
 
         # set stroke join
 
-        def set_stroke_dash_offset(dash_offset)
+        def stroke_dash_offset=(dash_offset)
             LibBlend2D.context_set_stroke_dash_offset(pointer, dash_offset)
         end
 
