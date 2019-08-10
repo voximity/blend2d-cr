@@ -32,6 +32,28 @@ module Blend2D
         Exclusion
         Count
     end
+    
+    enum StrokeJoin
+        MiterClip
+        MiterBevel
+        MiterRound
+        Bevel
+        Round
+    end
+
+    enum StrokeCapPosition
+        Start
+        End
+    end
+
+    enum StrokeCap
+        Butt
+        Square
+        Round
+        ReversedRound
+        Triangle
+        ReversedTriangle
+    end
 
     class Context < BLStructure
         # Initialize the context using the given Image.

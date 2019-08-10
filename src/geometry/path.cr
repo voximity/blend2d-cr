@@ -1,28 +1,6 @@
 include Blend2D::C
 
 module Blend2D::Geometry
-    enum StrokeJoin
-        MiterClip
-        MiterBevel
-        MiterRound
-        Bevel
-        Round
-    end
-
-    enum StrokeCapPosition
-        Start
-        End
-    end
-
-    enum StrokeCap
-        Butt
-        Square
-        Round
-        ReversedRound
-        Triangle
-        ReversedTriangle
-    end
-
     class Path < BLStructure
         # Initializes a path.
         def initialize
