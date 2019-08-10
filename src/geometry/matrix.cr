@@ -51,9 +51,9 @@ module Blend2D::Geometry
             LibBlend2D.matrix_set_skewing(pointer, x, y)
         end
 
-        #def apply_operation(operation : MatrixOperation, **params)
-        #    LibBlend2D.matrix_apply_op(pointer, operation, )
-        #end
+        def apply_operation(operation : MatrixOperation, data : Array(Float64))
+            LibBlend2D.matrix_apply_op(pointer, operation, data)
+        end
 
         def inversion : Matrix
             m = Matrix.allocate
