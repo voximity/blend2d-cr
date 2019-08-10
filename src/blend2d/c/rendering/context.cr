@@ -1,8 +1,40 @@
 module Blend2D::C
     @[Link("blend2d")]
     lib LibBlend2D
+        enum BLCompOp : UInt32
+            BL_COMP_OP_SRC_OVER,
+            BL_COMP_OP_SRC_COPY,
+            BL_COMP_OP_SRC_IN,
+            BL_COMP_OP_SRC_OUT,
+            BL_COMP_OP_SRC_ATOP,
+            BL_COMP_OP_DST_OVER,
+            BL_COMP_OP_DST_COPY,
+            BL_COMP_OP_DST_IN,
+            BL_COMP_OP_DST_OUT,
+            BL_COMP_OP_DST_ATOP,
+            BL_COMP_OP_XOR,
+            BL_COMP_OP_CLEAR,
+            BL_COMP_OP_PLUS,
+            BL_COMP_OP_MINUS,
+            BL_COMP_OP_MULTIPLY,
+            BL_COMP_OP_SCREEN,
+            BL_COMP_OP_OVERLAY,
+            BL_COMP_OP_DARKEN,
+            BL_COMP_OP_LIGHTEN,
+            BL_COMP_OP_COLOR_DODGE,
+            BL_COMP_OP_COLOR_BURN,
+            BL_COMP_OP_LINEAR_BURN,
+            BL_COMP_OP_LINEAR_LIGHT
+            BL_COMP_OP_PIN_LIGHT,
+            BL_COMP_OP_HARD_LIGHT,
+            BL_COMP_OP_SOFT_LIGHT,
+            BL_COMP_OP_DIFFERENCE,
+            BL_COMP_OP_EXCLUSION,
+            BL_COMP_OP_COUNT
+        end
+
         fun context_init = blContextInit(self : BLContextCore*) : BLResult
-        fun context_init_as = blContextInitAs(self : BLContextCore*, image : BLContextCore*, options : BLContextCreateInfo*) : BLResult
+        fun context_init_as = blContextInitAs(self : BLContextCore*, image : BLImageCore*, options : BLContextCreateInfo*) : BLResult
         fun context_reset = blContextReset(self : BLContextCore*) : BLResult
         fun context_assign_move = blContextAssignMove(self : BLContextCore*, other : BLContextCore*) : BLResult
         fun context_assign_weak = blContextAssignMove(self : BLContextCore*, other : BLContextCore*) : BLResult

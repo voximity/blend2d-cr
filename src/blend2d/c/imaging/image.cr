@@ -1,5 +1,3 @@
-require "./blresult.cr"
-
 module Blend2D::C
     @[Link("blend2d")]
     lib LibBlend2D
@@ -25,9 +23,9 @@ module Blend2D::C
         fun image_make_mutable = blImageMakeMutable(self : BLImageCore*, dataOut : BLImageData*) : BLResult
         fun image_equals = blImageEquals(a : BLImageCore*, b : BLImageCore*) : Bool
         # fun image_scale = blImageScale(dst : BLImageCore*, src : BLImageCore*, size : BLSizeI*, filter : UInt32, options : BLImageScaleOptions*) : BLResult
-        # fun image_read_from_file = blImageReadFromFile(self : BLImageCore*, fileName : Char*, codecs : BLArrayCore*)
+        # fun image_read_from_file = blImageReadFromFile(self : BLImageCore*, fileName : LibC::Char*, codecs : BLArrayCore*)
         # fun image_read_from_data = blImageReadFromData(self : BLImageCore*, data, size, codecs)
-        # fun image_write_to_file = blImageWriteToFile
+        fun image_write_to_file = blImageWriteToFile(self : BLImageCore*, fileName : LibC::Char*, codec : BLImageCodecCore*) : BLResult
         # fun image_write_to_data = blImageWriteToData
 
         struct BLImageData
