@@ -63,6 +63,9 @@ path.line_to size * 4 + padding * 4, size * 2 + padding * 2
 ctx.fill_style = yellow
 ctx.fill_path path
 
+# End the context
+ctx.end
+
 # Make a new image codec we can use to output our image
 codec = Blend2D::Codec.new
 codec.find_by_name "BMP"

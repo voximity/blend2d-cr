@@ -1,15 +1,15 @@
 module Blend2D::C
-    enum BLFormat : UInt32
-        BL_FORMAT_NONE,
-        BL_FORMAT_PRGB32,
-        BL_FORMAT_XRGB32,
-        BL_FORMAT_A8,
-        BL_FORMAT_COUNT,
-        BL_FORMAT_RESERVED_COUNT
-    end
 
     @[Link("blend2d")]
     lib LibBlend2D
+        enum BLFormat : UInt32
+            BL_FORMAT_NONE,
+            BL_FORMAT_PRGB32,
+            BL_FORMAT_XRGB32,
+            BL_FORMAT_A8,
+            BL_FORMAT_COUNT,
+            BL_FORMAT_RESERVED_COUNT
+        end
 
         fun image_init = blImageInit(self : BLImageCore*) : BLResult
         fun image_init_as = blImageInitAs(self : BLImageCore*, w : Int32, h : Int32, format : BLFormat) : BLResult

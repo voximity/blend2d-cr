@@ -5,7 +5,7 @@ module Blend2D
     # a programmatic image that has data that is mutable.
     class Image < BLStructure
         # Initialize the image with the provided parameters.
-        def initialize(w : Int32, h : Int32, format = BLFormat::BL_FORMAT_PRGB32)
+        def initialize(w : Int32, h : Int32, format = LibBlend2D::BLFormat::BL_FORMAT_PRGB32)
             @width = w
             @height = h
             @core = uninitialized LibBlend2D::BLImageCore

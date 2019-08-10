@@ -14,6 +14,10 @@ module Blend2D::Geometry
             @core = LibBlend2D::BLRoundRect.new x: @x, y: @y, w: @w, h: @h, rx: @rx, ry: @ry
         end
 
+        def initialize(x, y, w, h, r : Float64)
+            initialize(x, y, w, h, r, r)
+        end
+
         protected def type
             LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_ROUND_RECT
         end
