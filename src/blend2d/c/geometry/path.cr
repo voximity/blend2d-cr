@@ -1,4 +1,4 @@
-module Blend2D::C
+module Blend2D
     @[Link("blend2d")]
     lib LibBlend2D
         fun path_init = blPathInit(self : BLPathCore*) : BLResult

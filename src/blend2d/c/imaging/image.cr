@@ -1,17 +1,18 @@
-module Blend2D::C
+module Blend2D
+    enum BLFormat : UInt32
+        BL_FORMAT_NONE,
+        BL_FORMAT_PRGB32,
+        BL_FORMAT_XRGB32,
+        BL_FORMAT_A8,
+        BL_FORMAT_COUNT,
+        BL_FORMAAT_RESERVED_COUNT
+    end
+
     @[Link("blend2d")]
     lib LibBlend2D
-        enum BLFormat
-            BL_FORMAT_NONE,
-            BL_FORMAT_PRGB32,
-            BL_FORMAT_XRGB32,
-            BL_FORMAT_A8,
-            BL_FORMAT_COUNT,
-            BL_FORMAAT_RESERVED_COUNT
-        end
 
         fun image_init = blImageInit(self : BLImageCore*) : BLResult
-        fun image_init_as = blImageInitAs(self : BLImageCore*, w : Int32, h : Int32, format : UInt32) : BLResult
+        fun image_init_as = blImageInitAs(self : BLImageCore*, w : Int32, h : Int32, format : BLFormat) : BLResult
         # fun image_init_as_from_data = blImageInitAsFromData(self : BLImageCore*, w : Int, h : Int, format : UInt32, pixelData : Void*, stride : Void*, destroyFunc : BLDestroyImplFunc, destroyData : Void*) : BLResult
         fun image_reset = blImageReset(self : BLImageCore*) : BLResult
         fun image_assign_move = blImageAssignMove(self : BLImageCore*, other : BLImageCore*) : BLResult

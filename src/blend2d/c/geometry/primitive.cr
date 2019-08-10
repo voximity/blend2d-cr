@@ -1,4 +1,4 @@
-module Blend2D::C
+module Blend2D
     @[Link("blend2d")]
     lib LibBlend2D
         struct BLSizeI
@@ -17,7 +17,7 @@ module Blend2D::C
             x1 : Int32
             y1 : Int32
         end
-        
+
         struct BLBox
             x0 : Float64
             y0 : Float64
