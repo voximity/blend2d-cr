@@ -1,6 +1,6 @@
 include Blend2D::C
 
-module Blend2D
+module Blend2D::Geometry
     struct PointI
         getter x : Int32
         getter y : Int32

@@ -189,7 +189,9 @@ module Blend2D
             LibBlend2D.context_fill_path_d(pointer, path.pointer)
         end
 
-        # fill geometry
+        def fill_geometry(geometry : GeometryType)
+            LibBlend2D.context_fill_geometry(pointer, geometry.type, geometry.pointer)
+        end
 
         # fill text I
 
@@ -211,7 +213,9 @@ module Blend2D
             LibBlend2D.context_stroke_path_d(pointer, path.pointer)
         end
 
-        # stroke geometry
+        def stroke_geometry(geometry : GeometryType)
+            LibBlend2D.context_stroke_geometry(pointer, geometry.type, geometry.pointer)
+        end
 
         # stroke text I
 

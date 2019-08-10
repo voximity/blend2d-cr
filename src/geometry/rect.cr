@@ -1,7 +1,7 @@
 include Blend2D::C
 
-module Blend2D
-    struct BoxI
+module Blend2D::Geometry
+    struct BoxI < GeometryType
         getter x0 : Int32
         getter y0 : Int32
         getter x1 : Int32
@@ -12,12 +12,16 @@ module Blend2D
             @core = LibBlend2D::BLBoxI.new x0: @x0, y0: @y0, x1: @x1, y1: @y1
         end
 
+        protected def type
+            LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_BOXI
+        end
+
         protected def pointer
             pointerof(@core)
         end
     end
 
-    struct Box
+    struct Box < GeometryType
         getter x0 : Float64
         getter y0 : Float64
         getter x1 : Float64
@@ -28,12 +32,16 @@ module Blend2D
             @core = LibBlend2D::BLBox.new x0: @x0, y0: @y0, x1: @x1, y1: @y1
         end
 
+        protected def type
+            LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_BOXD
+        end
+
         protected def pointer
             pointerof(@core)
         end
     end
 
-    struct RectI
+    struct RectI < GeometryType
         getter x : Int32
         getter y : Int32
         getter w : Int32
@@ -44,12 +52,16 @@ module Blend2D
             @core = LibBlend2D::BLRectI.new x: @x, y: @y, w: @w, h: @h
         end
 
+        protected def type
+            LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_RECTI
+        end
+
         protected def pointer
             pointerof(@core)
         end
     end
 
-    struct Rect
+    struct Rect < GeometryType
         getter x : Float64
         getter y : Float64
         getter w : Float64
@@ -58,6 +70,10 @@ module Blend2D
         @core = uninitialized LibBlend2D::BLRect
         def initialize(@x : Float64, @y : Float64, @w : Float64, @h : Float64)
             @core = LibBlend2D::BLRect.new x: @x, y: @y, w: @w, h: @h
+        end
+
+        protected def type
+            LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_RECTD
         end
 
         protected def pointer

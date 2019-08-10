@@ -8,3 +8,11 @@ module Blend2D
         
     end
 end
+
+module Blend2D::Geometry
+    abstract struct GeometryType
+        abstract def type : LibBlend2D::BLGeometryType
+
+        abstract def pointer : Pointer
+    end
+end

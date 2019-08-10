@@ -1,11 +1,7 @@
 require "./c/lib-blend2d.cr"
+require "./*"
+require "./geometry/*"
 
-require "./bl_struct.cr"
-require "./codec.cr"
-require "./context.cr"
-require "./gradient.cr"
-require "./image.cr"
-require "./path.cr"
-require "./point.cr"
-require "./rect.cr"
-require "./styling.cr"
+module Blend2D
+    include Blend2D::Geometry
+end
