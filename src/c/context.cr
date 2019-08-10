@@ -1,4 +1,4 @@
-module Blend2D
+module Blend2D::C
     @[Link("blend2d")]
     lib LibBlend2D
         enum BLCompOp : UInt32
@@ -90,16 +90,16 @@ module Blend2D
         fun context_fill_rect_d = blContextFillRectD(self : BLContextCore*, rect : BLRect*) : BLResult
         fun context_fill_path_d = blContextFillPathD(self : BLContextCore*, path : BLPathCore*) : BLResult
         fun context_fill_geometry = blContextFillGeometry(self : BLContextCore*, geometryType : UInt32, geometryData : Void*) : BLResult
-        # fun context_fill_text_i = blContextFillTextI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, text : Void*, size : UInt32, encoding : UInt32) : BLResult
-        # fun context_fill_text_d = blContextFillTextD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, text : Void*, size : UInt32, encoding : UInt32) : BLResult
+        # fun context_fill_text_i = blContextFillTextI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
+        # fun context_fill_text_d = blContextFillTextD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
         # fun context_fill_glyph_run_i = blContextFillGlyphRunI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, glyphRun : BLGlyphRun*) : BLResult
         # fun context_fill_glyph_run_d = blContextFillGlyphRunD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, glyphRun : BLGlyphRun*) : BLResult
         fun context_stroke_rect_i = blContextStrokeRectI(self : BLContextCore*, rect : BLRectI*) : BLResult
         fun context_stroke_rect_d = blContextStrokeRectD(self : BLContextCore*, rect : BLRect*) : BLResult
         # fun context_stroke_path_d = blContextStrokePathD(self : BLContextCore*, path : BLPathCore*) : BLResult
         fun context_stroke_geometry = blContextStrokeGeometry(self : BLContextCore*, geometryType : UInt32, geometryData : Void*) : BLResult
-        # fun context_stroke_text_i = blContextStrokeTextI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, text : Void*, size : UInt32, encoding : UInt32) : BLResult
-        # fun context_stroke_text_d = blContextStrokeTextD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, text : Void*, size : UInt32, encoding : UInt32) : BLResult
+        # fun context_stroke_text_i = blContextStrokeTextI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
+        # fun context_stroke_text_d = blContextStrokeTextD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
         # fun context_stroke_glyph_run_i = blContextStrokeGlyphRunI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, glyphRun : BLGlyphRun*) : BLResult
         # fun context_stroke_glyph_run_d = blContextStrokeGlyphRunD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, glyphRun : BLGlyphRun*) : BLResult
         fun context_blit_image_i = blContextBlitImageI(self : BLContextCore*, rect : BLRectI*, img : BLImageCore*, imgArea : BLRectI*) : BLResult
@@ -115,18 +115,14 @@ module Blend2D
             flags : UInt32
             threadCount : UInt32
             cpuFeatures : UInt32
-            reserved : UInt32[5] # keep zero!
+            reserved : UInt32[5]
         end
-
-        #struct BLContextState
-        #
-        #end
 
         struct BLContextImpl
             # virt : BLContextVirt*
             # state : BLContextState*
             reservedHeader : Void*
-            refCount : UInt32
+            refCount : LibC::SizeT
             implType : UInt8
             implTraits : UInt8
             memPoolData : UInt16

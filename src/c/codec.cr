@@ -1,4 +1,4 @@
-module Blend2D
+module Blend2D::C
     @[Link("blend2d")]
     lib LibBlend2D
         fun image_codec_init = blImageCodecInit(self : BLImageCodecCore*) : BLResult

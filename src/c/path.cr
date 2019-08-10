@@ -1,4 +1,4 @@
-module Blend2D
+module Blend2D::C
     @[Link("blend2d")]
     lib LibBlend2D
         fun path_init = blPathInit(self : BLPathCore*) : BLResult
@@ -51,20 +51,20 @@ module Blend2D
         struct BLPathView
             commandData : UInt8*
             vertexData : BLPoint*
-            size : UInt32
+            size : LibC::SizeT
         end
 
         struct BLPathImpl
             commandData : UInt8*
             vertexData : BLPoint*
-            size : UInt32
+            size : LibC::SizeT
             view : BLPathView
-            refCount : UInt32
+            refCount : LibC::SizeT
             implType : UInt8
             implTraits : UInt8
             memPoolData : UInt16
             flags : UInt32
-            capacity : UInt32
+            capacity : LibC::SizeT
         end
 
         struct BLPathCore

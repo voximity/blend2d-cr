@@ -1,11 +1,11 @@
-module Blend2D
+module Blend2D::C
     @[Link("blend2d")]
     lib LibBlend2D
         struct BLArrayImpl
             data : Void*
-            size : UInt32
-            capacity : UInt32
-            refCount : UInt32
+            size : LibC::SizeT
+            capacity : LibC::SizeT
+            refCount : LibC::SizeT
             implType : UInt8
             implTraits : UInt8
             memPoolData : UInt16

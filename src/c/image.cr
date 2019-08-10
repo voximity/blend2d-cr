@@ -1,11 +1,11 @@
-module Blend2D
+module Blend2D::C
     enum BLFormat : UInt32
         BL_FORMAT_NONE,
         BL_FORMAT_PRGB32,
         BL_FORMAT_XRGB32,
         BL_FORMAT_A8,
         BL_FORMAT_COUNT,
-        BL_FORMAAT_RESERVED_COUNT
+        BL_FORMAT_RESERVED_COUNT
     end
 
     @[Link("blend2d")]
@@ -41,7 +41,7 @@ module Blend2D
             pixelData : Void*
             stride : Int32*
             writer : Void*
-            refCount : UInt32
+            refCount : LibC::SizeT
             implType : UInt8
             implTraits : UInt8
             memPoolData : UInt16
