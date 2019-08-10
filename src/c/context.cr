@@ -79,8 +79,8 @@ module Blend2D::C
         fun context_set_stroke_transform_order = blContextSetStrokeTransformOrder(self : BLContextCore*, transformOrder : UInt32) : BLResult
         # fun context_get_stroke_options = blContextGetStrokeOptions(self : BLContextCore*, options : BLStrokeOptionsCore*) : BLResult
         # fun context_set_stroke_options = blContestSetStrokeOptions(self : BLContextCore*, options : BLStrokeOptionsCore*) : BLResult
-        # fun context_clip_to_rect_i = blContextClipToRectI(self : BLContextCore*, rect : BLRectI*) : BLResult
-        # fun context_clip_to_rect_d = blContextClipToRectD(self : BLContextCore*, rect : BLRect*) : BLResult
+        fun context_clip_to_rect_i = blContextClipToRectI(self : BLContextCore*, rect : BLRectI*) : BLResult
+        fun context_clip_to_rect_d = blContextClipToRectD(self : BLContextCore*, rect : BLRect*) : BLResult
         fun context_restore_clipping = blContextRestoreClipping(self : BLContextCore*) : BLResult
         fun context_clear_all = blContextClearAll(self : BLContextCore*) : BLResult
         fun context_clear_rect_i = blContextClearRectI(self : BLContextCore*, rect : BLRectI*) : BLResult
@@ -96,7 +96,7 @@ module Blend2D::C
         # fun context_fill_glyph_run_d = blContextFillGlyphRunD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, glyphRun : BLGlyphRun*) : BLResult
         fun context_stroke_rect_i = blContextStrokeRectI(self : BLContextCore*, rect : BLRectI*) : BLResult
         fun context_stroke_rect_d = blContextStrokeRectD(self : BLContextCore*, rect : BLRect*) : BLResult
-        # fun context_stroke_path_d = blContextStrokePathD(self : BLContextCore*, path : BLPathCore*) : BLResult
+        fun context_stroke_path_d = blContextStrokePathD(self : BLContextCore*, path : BLPathCore*) : BLResult
         fun context_stroke_geometry = blContextStrokeGeometry(self : BLContextCore*, geometryType : UInt32, geometryData : Void*) : BLResult
         # fun context_stroke_text_i = blContextStrokeTextI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
         # fun context_stroke_text_d = blContextStrokeTextD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult

@@ -127,11 +127,17 @@ module Blend2D
             LibBlend2D.context_set_stroke_miter_limit(pointer, miter_limit)
         end
 
-        # set stroke cap
+        def set_stroke_cap(position : StrokeCapPosition, cap : StrokeCap)
+            LibBlend2D.context_set_stroke_cap(pointer, position, cap)
+        end
 
-        # set stroke caps
+        def stroke_caps=(cap : StrokeCap)
+            LibBlend2D.context_set_stroke_caps(pointer, cap)
+        end
 
-        # set stroke join
+        def stroke_join=(join : StrokeJoin)
+            LibBlend2D.context_set_stroke_join(pointer, join)
+        end
 
         def stroke_dash_offset=(dash_offset)
             LibBlend2D.context_set_stroke_dash_offset(pointer, dash_offset)
@@ -143,9 +149,13 @@ module Blend2D
 
         # set stroke options
 
-        # clip to rect I
+        def clip_to_rect(rect : RectI)
+            LibBlend2D.context_clip_to_rect_i(pointer, rect.pointer)
+        end
 
-        # clip to rect D
+        def clip_to_rect(rect : Rect)
+            LibBlend2D.context_clip_to_rect_d(pointer, rect.pointer)
+        end
 
         def restore_clipping
             LibBlend2D.context_restore_clipping(pointer)
@@ -155,17 +165,25 @@ module Blend2D
             LibBlend2D.context_clear_all(pointer)
         end
 
-        # clear rect I
+        def clear_rect(rect : RectI)
+            LibBlend2D.context_clear_rect_i(pointer, rect.pointer)
+        end
 
-        # clear rect D
+        def clear_rect(rect : Rect)
+            LibBlend2D.context_clear_rect_d(pointer, rect.pointer)
+        end
 
         def fill_all
             LibBlend2D.context_fill_all(pointer)
         end
 
-        # fill rect I
+        def fill_rect(rect : RectI)
+            LibBlend2D.context_fill_rect_i(pointer, rect.pointer)
+        end
 
-        # fill rect D
+        def fill_rect(rect : Rect)
+            LibBlend2D.context_fill_rect_d(pointer, rect.pointer)
+        end
 
         def fill_path(path : Path)
             LibBlend2D.context_fill_path_d(pointer, path.pointer)
@@ -181,9 +199,13 @@ module Blend2D
 
         # fill glyph run D
 
-        # stroke rect I
+        def stroke_rect(rect : RectI)
+            LibBlend2D.context_stroke_rect_i(pointer, rect.pointer)
+        end
 
-        # stroke rect D
+        def stroke_rect(rect : Rect)
+            LibBlend2D.context_stroke_rect_d(pointer, rect.pointer)
+        end
 
         def stroke_path(path : Path)
             LibBlend2D.context_stroke_path_d(pointer, path.pointer)

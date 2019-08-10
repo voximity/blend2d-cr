@@ -5,13 +5,13 @@ module Blend2D
         getter x : Int32
         getter y : Int32
 
-        def initialize(x, y)
-            @x = x
-            @y = y
+        @core = uninitialized LibBlend2D::BLPointI
+        def initialize(@x : Int32, @y : Int32)
+            @core = LibBlend2D::BLPointI.new x: @x, y: @y
         end
 
         protected def pointer
-            pointerof(LibBlend2D::BLPointI.new x: @x, y: @y)
+            pointerof(@core)
         end
     end
 
@@ -19,13 +19,13 @@ module Blend2D
         getter x : Float64
         getter y : Float64
 
-        def initialize(x, y)
-            @x = x
-            @y = y
+        @core = uninitialized LibBlend2D::BLPoint
+        def initialize(@x : Float64, @y : Float64)
+            @core = LibBlend2D::BLPoint.new x: @x, y: @y
         end
 
         protected def pointer
-            pointerof(LibBlend2D::BLPoint.new x: @x, y: @y)
+            pointerof(@core)
         end
     end
 end

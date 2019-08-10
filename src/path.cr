@@ -1,6 +1,28 @@
 include Blend2D::C
 
 module Blend2D
+    enum StrokeJoin
+        MiterClip
+        MiterBevel
+        MiterRound
+        Bevel
+        Round
+    end
+
+    enum StrokeCapPosition
+        Start
+        End
+    end
+
+    enum StrokeCap
+        Butt
+        Square
+        Round
+        ReversedRound
+        Triangle
+        ReversedTriangle
+    end
+
     class Path < BLStructure
         # Initializes a path.
         def initialize
@@ -90,7 +112,9 @@ module Blend2D
 
         # add rect d
 
-        # add path
+        def add_path(other : Path, range : Range)
+            LibBlend2D.path_add_path(pointer, other.pointer, LibBlend2D::BLRange.new start: range.begin, end: range.end)
+        end
 
         # add translated path
 
