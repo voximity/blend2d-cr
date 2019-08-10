@@ -36,7 +36,7 @@ codec.find_by_name "BMP"
 img.write_to_file "test.bmp", codec
 ```
 
-[test.bmp](https://i.imgur.com/7hOREPm.png)
+![test.bmp](https://i.imgur.com/7hOREPm.png)
 
 ## Examples
 
