@@ -88,7 +88,59 @@ module Blend2D::Rendering
 
         # User to meta
 
-        # Matrix operation
+        # Matrix operations (one for each?)
+
+        def reset_matrix
+            LibBlend2D.context_matrix_op(pointer, MatrixOperation::Reset, nil)
+        end
+
+        def matrix_operation(operation : MatrixOperation, data : Array(Float64))
+            LibBlend2D.context_matrix_op(pointer, operation, data)
+        end
+
+        def translate(x : Float64, y : Float64)
+            matrix_operation(MatrixOperation::Translate, [x, y])
+        end
+
+        def translate(point : PointI)
+            translate(point.x, point.y)
+        end
+
+        def translate(point : Point)
+            translate(point.x, point.y)
+        end
+
+        def scale(x : Float64, y : Float64)
+            matrix_operation(MatrixOperation::Scale, [x, y])
+        end
+
+        def scale(factor : Float64)
+            scale(factor, factor)
+        end
+
+        def skew(x : Float64, y : Float64)
+            matrix_operation(MatrixOperation::Skew, [x, y])
+        end
+
+        def rotate(angle : Float64)
+            matrix_operation(MatrixOperation::Rotate, [angle])
+        end
+
+        def rotate(angle : Float64, cx : Float64, cy : Float64)
+            matrix_operation(MatrixOperation::RotatePoint, [angle, cx, cy])
+        end
+
+        def rotate(angle : Float64, point : PointI)
+            rotate(angle, point.x, point.y)
+        end
+
+        def rotate(angle : Float64, point : Point)
+            rotate(angle, point.x, point.y)
+        end
+
+        def transform(matrix : Matrix)
+            matrix_operation(MatrixOperation::Transform, [matrix.pointer])
+        end
 
         # Set hint
 
