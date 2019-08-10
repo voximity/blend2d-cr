@@ -1,0 +1,1 @@
+require "./blend2d/blend2d.cr"

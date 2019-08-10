@@ -1,0 +1,1 @@
+require "./c/lib-blend2d.cr"

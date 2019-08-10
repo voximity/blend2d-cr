@@ -1,0 +1,9 @@
+name: blend2d-cr
+version: 0.1.0
+
+authors:
+  - voximity <vox@voximity.net>
+
+crystal: 0.30.0
+
+license: MIT
