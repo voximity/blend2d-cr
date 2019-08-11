@@ -279,6 +279,14 @@ module Blend2D::Rendering
             LibBlend2D.context_fill_text_d(pointer, point.pointer, font.pointer, text, text.size, encoding)
         end
 
+        def fill_glyph_run(point : PointI, font : Font, run : GlyphRun)
+            LibBlend2D.context_fill_glyph_run_i(pointer, point.pointer, font.pointer, run.pointer)
+        end
+
+        def fill_glyph_run(point : Point, font : Font, run : GlyphRun)
+            LibBlend2D.context_fill_glyph_run_d(pointer, point.pointer, font.pointer, run.pointer)
+        end
+
         # fill glyph run I
 
         # fill glyph run D
