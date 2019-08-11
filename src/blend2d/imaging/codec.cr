@@ -1,7 +1,8 @@
 module Blend2D::Imaging
     class Codec < BLStructure
+        @core = uninitialized LibBlend2D::BLImageCodecCore
+        
         def initialize
-            @core = uninitialized LibBlend2D::BLImageCodecCore
             LibBlend2D.image_codec_init(pointer)
         end
 
@@ -16,6 +17,8 @@ module Blend2D::Imaging
         def find_by_name(name)
             LibBlend2D.image_codec_find_by_name(pointer, name, LibC::SizeT::MAX, nil)
         end
+
+        # are any of the methods below worth implementing high-level? or just keep for C namespace?
 
         # find by data
         

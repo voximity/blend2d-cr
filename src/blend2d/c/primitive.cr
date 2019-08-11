@@ -1,6 +1,51 @@
 module Blend2D::C
     @[Link("blend2d")]
     lib LibBlend2D
+        enum BLImplType : UInt32
+            BL_IMPL_TYPE_NULL
+            BL_IMPL_TYPE_BIT_ARRAY
+            BL_IMPL_TYPE_STRING
+            BL_IMPL_TYPE_ARRAY_VAR
+            BL_IMPL_TYPE_ARRAY_I8
+            BL_IMPL_TYPE_ARRAY_U8
+            BL_IMPL_TYPE_ARRAY_I16
+            BL_IMPL_TYPE_ARRAY_U16
+            BL_IMPL_TYPE_ARRAY_I32
+            BL_IMPL_TYPE_ARRAY_U32
+            BL_IMPL_TYPE_ARRAY_I64
+            BL_IMPL_TYPE_ARRAY_U64
+            BL_IMPL_TYPE_ARRAY_F32
+            BL_IMPL_TYPE_ARRAY_F64
+            BL_IMPL_TYPE_ARRAY_STRUCT_1
+            BL_IMPL_TYPE_ARRAY_STRUCT_2
+            BL_IMPL_TYPE_ARRAY_STRUCT_3
+            BL_IMPL_TYPE_ARRAY_STRUCT_4
+            BL_IMPL_TYPE_ARRAY_STRUCT_6
+            BL_IMPL_TYPE_ARRAY_STRUCT_8
+            BL_IMPL_TYPE_ARRAY_STRUCT_10
+            BL_IMPL_TYPE_ARRAY_STRUCT_12
+            BL_IMPL_TYPE_ARRAY_STRUCT_16
+            BL_IMPL_TYPE_ARRAY_STRUCT_20
+            BL_IMPL_TYPE_ARRAY_STRUCT_24
+            BL_IMPL_TYPE_ARRAY_STRUCT_32
+            BL_IMPL_TYPE_PATH
+            BL_IMPL_TYPE_REGION
+            BL_IMPL_TYPE_IMAGE
+            BL_IMPL_TYPE_IMAGE_CODEC
+            BL_IMPL_TYPE_IMAGE_DECODER
+            BL_IMPL_TYPE_IMAGE_ENCODER
+            BL_IMPL_TYPE_GRADIENT
+            BL_IMPL_TYPE_PATTERN
+            BL_IMPL_TYPE_CONTEXT
+            BL_IMPL_TYPE_FONT
+            BL_IMPL_TYPE_FONT_FACE
+            BL_IMPL_TYPE_FONT_DATA
+            BL_IMPL_TYPE_FONT_LOADER
+            BL_IPML_TYPE_FONT_FEATURE_OPTIONS
+            BL_IMPL_TYPE_FONT_VARIATION_OPTIONS
+            BL_IMPL_TYPE_COUNT
+        end
+
         enum BLGeometryType : UInt32
             BL_GEOMETRY_TYPE_NONE
             BL_GEOMETRY_TYPE_BOXI

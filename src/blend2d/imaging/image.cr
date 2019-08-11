@@ -4,13 +4,25 @@ module Blend2D::Imaging
     # An Image is a structure provided by Blend2D that contains information about
     # a programmatic image that has data that is mutable.
     class Image < BLStructure
-        # Initialize the image with the provided parameters.
+        @core = uninitialized LibBlend2D::BLImageCore
+
+        # Initialize a blank image with the provided parameters.
         def initialize(w : Int32, h : Int32, format = LibBlend2D::BLFormat::BL_FORMAT_PRGB32)
-            @width = w
-            @height = h
-            @core = uninitialized LibBlend2D::BLImageCore
-            LibBlend2D.image_init_as(pointer, @width, @height, format)
+            #@width = w
+            #@height = h
+            LibBlend2D.image_init_as(pointer, w, h, format)
         end
+
+        # Initialize an image from the file.
+        def initialize(file_name : String)
+            LibBlend2D.image_init(pointer)
+            LibBlend2D.image_read_from_file(pointer, file_name, nil)
+        end
+
+        # Initialize an image from the given file with a given codec.
+        #def initialize(file_name : String, codec : Codec)
+        #    initialize(file_name, [codec])
+        #end
 
         protected def pointer
             pointerof(@core)
@@ -19,6 +31,21 @@ module Blend2D::Imaging
         def finalize
             LibBlend2D.image_reset(pointer)
         end
+
+        protected def image_data
+            LibBlend2D.image_get_data(pointer, out data)
+            data
+        end
+
+        def width
+            image_data.size.w
+        end
+
+        def height
+            image_data.size.h
+        end
+
+        # TODO: finish these extra methods if they're high-level worthy
 
         # init as from data
 

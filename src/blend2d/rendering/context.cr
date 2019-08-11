@@ -179,6 +179,10 @@ module Blend2D::Rendering
             LibBlend2D.context_set_fill_style(pointer, gradient.pointer)
         end
 
+        def fill_style=(pattern : Pattern)
+            LibBlend2D.context_set_fill_style(pointer, pattern.pointer)
+        end
+
         # set fill rule
 
         def stroke_alpha=(alpha)
@@ -197,6 +201,10 @@ module Blend2D::Rendering
             LibBlend2D.context_set_stroke_style(pointer, gradient.pointer)
         end
 
+        def stroke_style=(pattern : Pattern)
+            LibBlend2D.context_set_stroke_style(pointer, pattern.pointer)
+        end
+
         def stroke_width=(width)
             LibBlend2D.context_set_stroke_width(pointer, width)
         end
@@ -211,6 +219,14 @@ module Blend2D::Rendering
 
         def stroke_caps=(cap : StrokeCap)
             LibBlend2D.context_set_stroke_caps(pointer, cap)
+        end
+
+        def stroke_start_cap=(cap : StrokeCap)
+            set_stroke_cap(StrokeCapPosition::Start, cap)
+        end
+
+        def stroke_end_cap=(cap : StrokeCap)
+            set_stroke_cap(StrokeCapPosition::End, cap)
         end
 
         def stroke_join=(join : StrokeJoin)
@@ -287,10 +303,6 @@ module Blend2D::Rendering
             LibBlend2D.context_fill_glyph_run_d(pointer, point.pointer, font.pointer, run.pointer)
         end
 
-        # fill glyph run I
-
-        # fill glyph run D
-
         def stroke_rect(rect : RectI)
             LibBlend2D.context_stroke_rect_i(pointer, rect.pointer)
         end
@@ -315,9 +327,13 @@ module Blend2D::Rendering
             LibBlend2D.context_stroke_text_d(pointer, point.pointer, font.pointer, text, text.size, encoding)
         end
 
-        # stroke glyph run I
+        def stroke_glyph_run(point : PointI, font : Font, run : GlyphRun)
+            LibBlend2D.context_stroke_glyph_run_i(pointer, point.pointer, font.pointer, run.pointer)
+        end
 
-        # stroke glyph run D
+        def stroke_glyph_run(point : Point, font : Font, run : GlyphRun)
+            LibBlend2D.context_stroke_glyph_run_d(pointer, point.pointer, font.pointer, run.pointer)
+        end
 
         # blit image I
 
