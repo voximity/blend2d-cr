@@ -1,12 +1,12 @@
-require "./c/*"
+require "./blend2d/c/*"
 
-require "./abstract.cr"
-require "./geometry/*"
-require "./globals/*"
-require "./imaging/*"
-require "./rendering/*"
-require "./styling/*"
-require "./text/*"
+require "./blend2d/abstract.cr"
+require "./blend2d/geometry/*"
+require "./blend2d/globals/*"
+require "./blend2d/imaging/*"
+require "./blend2d/rendering/*"
+require "./blend2d/styling/*"
+require "./blend2d/text/*"
 
 module Blend2D
     include Blend2D::Globals

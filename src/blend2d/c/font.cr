@@ -4,7 +4,7 @@ module Blend2D::C
         fun font_init = blFontInit(BLFontCore*) : BLResult
         fun font_reset = blFontReset(BLFontCore*) : BLResult
         fun font_equals = blFontEquals(BLFontCore*, BLFontCore*) : Bool
-        fun font_create_from_face = blFontCreateFromFace(BLFontCore*, BLFontFaceCore*, Float64) : BLResult
+        fun font_create_from_face = blFontCreateFromFace(BLFontCore*, BLFontFaceCore*, Float32) : BLResult
         fun font_shape = blFontShape(BLFontCore*, BLGlyphBufferCore*) : BLResult
         fun font_map_text_to_glyphs = blFontMapTextToGlyphs(BLFontCore*, BLGlyphBufferCore*, BLGlyphMappingState*) : BLResult
         fun font_position_glyphs = blFontPositionGlyphs(BLFontCore*, BLGlyphBufferCore*, UInt32) : BLResult
@@ -25,7 +25,7 @@ module Blend2D::C
         fun font_face_equals = blFontFaceEquals(BLFontFaceCore*, BLFontFaceCore*) : Bool
         fun font_face_create_from_file = blFontFaceCreateFromFile(BLFontFaceCore*, LibC::Char*, UInt32) : BLResult
         fun font_face_create_from_loader = blFontFaceCreateFromLoader(BLFontFaceCore*, BLFontLoaderCore*, UInt32) : BLResult
-        # get face info
+        fun font_face_get_face_info = blFontFaceGetFaceInfo(BLFontFaceCore*, BLFontFaceInfo*) : BLResult
         # get design metrics
         # get unicode coverage
 

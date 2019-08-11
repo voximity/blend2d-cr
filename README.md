@@ -67,6 +67,32 @@ image.write_to_file "example/composition.bmp", codec
 
 See the `example` directory.
 
+### Garbage collection
+
+Because Crystal is a garbage-collected language, there is no need to call any manual C methods
+to clean up after a no-longer-in-use Blend2D object. This is done automatically through each
+high-level class's `finalize` method.
+
+### C API
+
+You can use the direct C binding through the `Blend2D::C` namespace. The lib is called `LibBlend2D`.
+A good amount of methods and types are implemented, but some that are considered unnecessary are not\*.
+The source for the C bindings are in `/src/blend2d/c`.
+
+The naming scheme for C structs are identical in this binding. However, the method naming
+scheme is not. In the C API, methods of Blend2D are prefixed with `bl`, which is followed by
+the topic that method represents, then some CamelCased text describing the purpose of the method.
+In `Blend2D::C`, methods are renamed without `bl` and are snake_cased instead, to follow the basic
+naming conventions of Crystal.
+
+Here are some examples:
+* `BLContextCore` is `LibBlend2D::BLContextCore`
+* `blContextInit` is `LibBlend2D.context_init`
+* `blFontGetGlyphRunOutlines` is `LibBlend2D.font_get_glyph_run_outlines`
+
+\* The assumption that some methods and types are unnecessary is arbitrary. If you have a need for a certain
+method or type, either create an issue or a PR and I will work on implementing it.
+
 ## Contributing & maintaining
 
 I will maintain this library as Blend2D changes. Please keep in mind that not only is this binding in a very early state

@@ -98,8 +98,8 @@ module Blend2D::C
         fun context_stroke_rect_d = blContextStrokeRectD(self : BLContextCore*, rect : BLRect*) : BLResult
         fun context_stroke_path_d = blContextStrokePathD(self : BLContextCore*, path : BLPathCore*) : BLResult
         fun context_stroke_geometry = blContextStrokeGeometry(self : BLContextCore*, geometryType : UInt32, geometryData : Void*) : BLResult
-        # fun context_stroke_text_i = blContextStrokeTextI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
-        # fun context_stroke_text_d = blContextStrokeTextD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
+        fun context_stroke_text_i = blContextStrokeTextI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
+        fun context_stroke_text_d = blContextStrokeTextD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
         # fun context_stroke_glyph_run_i = blContextStrokeGlyphRunI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, glyphRun : BLGlyphRun*) : BLResult
         # fun context_stroke_glyph_run_d = blContextStrokeGlyphRunD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, glyphRun : BLGlyphRun*) : BLResult
         fun context_blit_image_i = blContextBlitImageI(self : BLContextCore*, rect : BLRectI*, img : BLImageCore*, imgArea : BLRectI*) : BLResult

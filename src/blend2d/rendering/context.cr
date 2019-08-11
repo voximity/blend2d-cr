@@ -193,6 +193,10 @@ module Blend2D::Rendering
             LibBlend2D.context_set_stroke_style_rgba64(pointer, color.raw)
         end
 
+        def stroke_style=(gradient : Gradient)
+            LibBlend2D.context_set_stroke_style(pointer, gradient.pointer)
+        end
+
         def stroke_width=(width)
             LibBlend2D.context_set_stroke_width(pointer, width)
         end
@@ -268,12 +272,11 @@ module Blend2D::Rendering
         end
 
         def fill_text(point : PointI, font : Font, text : String, encoding : TextEncoding = TextEncoding::UTF8)
-            LibBlend2D.context_fill_text_i(pointer, point.pointer, font.pointer, BLString.new(text).pointer, text.size * sizeof(LibC::Char), encoding)
+            LibBlend2D.context_fill_text_i(pointer, point.pointer, font.pointer, text, text.size, encoding)
         end
 
         def fill_text(point : Point, font : Font, text : String, encoding : TextEncoding = TextEncoding::UTF8)
-            str = BLString.new(text)
-            LibBlend2D.context_fill_text_d(pointer, point.pointer, font.pointer, str.pointer, text.size, encoding)
+            LibBlend2D.context_fill_text_d(pointer, point.pointer, font.pointer, text, text.size, encoding)
         end
 
         # fill glyph run I
@@ -296,9 +299,13 @@ module Blend2D::Rendering
             LibBlend2D.context_stroke_geometry(pointer, geometry.type, geometry.pointer)
         end
 
-        # stroke text I
+        def stroke_text(point : PointI, font : Font, text : String, encoding : TextEncoding = TextEncoding::UTF8)
+            LibBlend2D.context_stroke_text_i(pointer, point.pointer, font.pointer, text, text.size, encoding)
+        end
 
-        # stroke text D
+        def stroke_text(point : Point, font : Font, text : String, encoding : TextEncoding = TextEncoding::UTF8)
+            LibBlend2D.context_stroke_text_d(pointer, point.pointer, font.pointer, text, text.size, encoding)
+        end
 
         # stroke glyph run I
 

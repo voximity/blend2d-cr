@@ -1,5 +1,5 @@
 module Blend2D::Text
-    enum TextEncoding
+    enum TextEncoding : UInt32
         UTF8
         UTF16
         UTF32
