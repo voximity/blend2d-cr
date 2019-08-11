@@ -267,9 +267,14 @@ module Blend2D::Rendering
             LibBlend2D.context_fill_geometry(pointer, geometry.type, geometry.pointer)
         end
 
-        # fill text I
+        def fill_text(point : PointI, font : Font, text : String, encoding : TextEncoding = TextEncoding::UTF8)
+            LibBlend2D.context_fill_text_i(pointer, point.pointer, font.pointer, BLString.new(text).pointer, text.size * sizeof(LibC::Char), encoding)
+        end
 
-        # fill text D
+        def fill_text(point : Point, font : Font, text : String, encoding : TextEncoding = TextEncoding::UTF8)
+            str = BLString.new(text)
+            LibBlend2D.context_fill_text_d(pointer, point.pointer, font.pointer, str.pointer, text.size, encoding)
+        end
 
         # fill glyph run I
 

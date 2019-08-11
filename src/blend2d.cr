@@ -6,14 +6,14 @@ require "./globals/*"
 require "./imaging/*"
 require "./rendering/*"
 require "./styling/*"
-#require "./text/*"
+require "./text/*"
 
 module Blend2D
-    # include Blend2D::Global
+    include Blend2D::Globals
     include Blend2D::Geometry
     include Blend2D::Imaging
     include Blend2D::Styling
-    # Include Blend2D::Text
+    include Blend2D::Text
     include Blend2D::Rendering
 
     private class CArray

@@ -82,7 +82,9 @@ module Blend2D::Geometry
             LibBlend2D.path_close(pointer)
         end
 
-        # add geometry
+        def add_geometry(geometry : GeometryType, direction : GeometryDirection, matrix : Matrix = nil)
+            LibBlend2D.path_add_geometry(pointer, geometry.type, geometry.pointer, matrix, direction)
+        end
 
         def add_box(box : BoxI, direction : GeometryDirection)
             LibBlend2D.path_add_box_i(pointer, box.pointer, direction)

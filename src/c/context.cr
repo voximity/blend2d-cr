@@ -90,8 +90,8 @@ module Blend2D::C
         fun context_fill_rect_d = blContextFillRectD(self : BLContextCore*, rect : BLRect*) : BLResult
         fun context_fill_path_d = blContextFillPathD(self : BLContextCore*, path : BLPathCore*) : BLResult
         fun context_fill_geometry = blContextFillGeometry(self : BLContextCore*, geometryType : UInt32, geometryData : Void*) : BLResult
-        # fun context_fill_text_i = blContextFillTextI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
-        # fun context_fill_text_d = blContextFillTextD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
+        fun context_fill_text_i = blContextFillTextI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
+        fun context_fill_text_d = blContextFillTextD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, text : Void*, size : LibC::SizeT, encoding : UInt32) : BLResult
         # fun context_fill_glyph_run_i = blContextFillGlyphRunI(self : BLContextCore*, pt : BLPointI*, font : BLFontCore*, glyphRun : BLGlyphRun*) : BLResult
         # fun context_fill_glyph_run_d = blContextFillGlyphRunD(self : BLContextCore*, pt : BLPoint*, font : BLFontCore*, glyphRun : BLGlyphRun*) : BLResult
         fun context_stroke_rect_i = blContextStrokeRectI(self : BLContextCore*, rect : BLRectI*) : BLResult
