@@ -1,6 +1,12 @@
 include Blend2D::C
 
 module Blend2D::Geometry
+    enum GeometryDirection
+        None
+        Clockwise
+        CounterClockwise
+    end
+
     class Path < BLStructure
         # Initializes a path.
         def initialize
@@ -16,13 +22,9 @@ module Blend2D::Geometry
             LibBlend2D.path_reset(pointer)
         end
 
-        # get size?
-        
-        # get capacity?
-
-        # get command data?
-
-        # get vertex data?
+        def vertices
+            CArray.get(LibBlend2D.path_get_vertex_data(pointer), LibBlend2D.path_get_size(pointer)).map { |p| Point.new p.x, p.y }
+        end
 
         def clear
             LibBlend2D.path_clear(pointer)
@@ -82,49 +84,71 @@ module Blend2D::Geometry
 
         # add geometry
 
-        # add box i
-
-        # add box d
-
-        # add rect i
-
-        # add rect d
-
-        def add_path(other : Path, range : Range)
-            LibBlend2D.path_add_path(pointer, other.pointer, LibBlend2D::BLRange.new start: range.begin, end: range.end)
+        def add_box(box : BoxI, direction : GeometryDirection)
+            LibBlend2D.path_add_box_i(pointer, box.pointer, direction)
         end
 
-        # add translated path
+        def add_box(box : BoxD, direction : GeometryDirection)
+            LibBlend2D.path_add_box_d(pointer, box.pointer, direction)
+        end
 
-        # add transformed path
+        def add_rect(rect : RectI, direction : GeometryDirection)
+            LibBlend2D.path_add_rect_i(pointer, rect.pointer, direction)
+        end
 
-        # add reversed path
+        def add_rect(rect : Rect, direction : GeometryDirection)
+            LibBlend2D.path_add_rect_d(pointer, rect.pointer, direction)
+        end
 
-        # add stroked path
+        def add_path(other : Path, range : Blend2D::Globals::Range)
+            LibBlend2D.path_add_path(pointer, other.pointer, range.pointer)
+        end
 
-        # translate
+        def add_translated_path(other : Path, range : Blend2D::Globals::Range, point : Point)
+            LibBlend2D.path_add_translated_path(pointer, other.pointer, range.pointer, point.pointer)
+        end
 
-        # transform
+        def add_transformed_path(other : Path, range : Blend2D::Globals::Range, matrix : Matrix)
+            LibBlend2D.path_add_transformed_path(pointer, other.pointer, range.pointer, matrix.pointer)
+        end
 
-        # fit to
+        # add reversed path (need enum)
+
+        # add stroked path (need enum)
+
+        def translate(range : Blend2D::Globals::Range, point : Point)
+            LibBlend2D.path_translate(pointer, range.pointer, point.pointer)
+        end
+
+        def transform(range : Blend2D::Globals::Range, matrix : Matrix)
+            LibBlend2D.path_transform(pointer, range.pointer, matrix.pointer)
+        end
+
+        # fit to (need enum)
 
         def ==(other : Path)
             LibBlend2D.path_equals(pointer, other.pointer)
         end
 
-        # get info flags?
+        # get info flags (is this necessary?)
 
-        # get control box?
+        def control_box
+            LibBlend2D.path_get_control_box(pointer, out box)
+            Box.new box.x0, box.y0, box.x1, box.y1
+        end
 
-        # get bounding box?
+        def bounding_box
+            LibBlend2D.path_get_bounding_box(pointer, out box)
+            Box.new box.x0, box.y0, box.x1, box.y1
+        end
 
-        # get figure range?
+        # get figure range (is this necessary?)
 
         def last_vertex
             LibBlend2D.path_get_last_vertex(pointer, out point)
             Point.new point.x, point.y
         end
 
-        # get closest vertex
+        # get closest vertex (need to implement a way to list vertices)
     end
 end

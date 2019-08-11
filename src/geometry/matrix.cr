@@ -55,11 +55,16 @@ module Blend2D::Geometry
             LibBlend2D.matrix_apply_op(pointer, operation, data)
         end
 
-        def inversion : Matrix
+        def inverse : Matrix
             m = Matrix.allocate
             LibBlend2D.matrix_invert(out new_matrix, pointer)
             m.init_with_core new_matrix
             m
+        end
+
+        def inverse!
+            LibBlend2D.matrix_invert(out new_matrix, pointer)
+            @core = new_matrix
         end
 
         # get type
