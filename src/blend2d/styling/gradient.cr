@@ -24,6 +24,30 @@ module Blend2D::Styling
         ComplexCount
     end
 
+    struct GradientStop
+        getter offset : Float64
+        getter rgba64 : RGBA64
+
+        @core = uninitialized LibBlend2D::BLGradientStop
+
+        def initialize(@offset, @rgba64)
+            @core = LibBlend2D::BLGradientStop.new offset: @offset, rgba64: @rgba64.raw
+        end
+
+        def initialize(offset : Float64, rgba32 : RGBA32)
+            initialize offset, rgba32.to_rgba64
+        end
+
+        protected def initialize(stop : BLGradientStop)
+            @offset = stop.offset
+            @rgba64 = RGBA64.new stop.rgba
+        end
+
+        protected def pointer
+            pointerof(@core)
+        end
+    end
+
     class Gradient < BLStructure
         # Creates a new linear gradient with the specified coordinates.
         def Gradient.linear(x0, y0, x1, y1, extend_mode = ExtendMode::Pad)
@@ -99,17 +123,23 @@ module Blend2D::Styling
             LibBlend2D.gradient_set_extend_mode(pointer, extend_mode)
         end
 
-        # get stops
-
-        # get size
-
-        # get capacity
+        def stops
+            ptr = LibBlend2D.gradient_get_stops(pointer)
+            size = LibBlend2D.gradient_get_size(pointer)
+            CArray.get(ptr, size).map { |s| GradientStop.new s }
+        end
 
         def reset_stops
             LibBlend2D.gradient_reset_stops(pointer)
         end
 
-        # assign stops
+        def set_stops(stops : Array(GradientStop))
+            LibBlend2D.gradient_assign_stops(pointer, pointerof(stops), stops.size)
+        end
+
+        def add_stop(stop : GradientStop)
+            LibBlend2D.gradient_add_stop_rgba64(pointer, stop.offset, stop.rgba64.raw)
+        end
 
         def add_stop(offset : Float64, color : RGBA32)
             LibBlend2D.gradient_add_stop_rgba32(pointer, offset, color.raw)
@@ -145,7 +175,9 @@ module Blend2D::Styling
             LibBlend2D.gradient_index_of_stop(pointer, offset)
         end
 
-        # apply matrix operation
+        def matrix_operation(operation : MatrixOperation, data : Array(Float64))
+            LibBlend2D.gradient_apply_matrix_op(pointer, operation, data)
+        end
 
         def ==(other : Gradient)
             LibBlend2D.gradient_equals(pointer, other.pointer)
