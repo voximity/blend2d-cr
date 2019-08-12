@@ -18,6 +18,14 @@ module Blend2D::Geometry
             initialize(x, y, w, h, r, r)
         end
 
+        def initialize(rect : Rect, rx : Float64, ry : Float64)
+            initialize(rect.x, rect.y, rect.w, rect.h, rx, ry)
+        end
+
+        def initialize(rect : Rect, r : Float64)
+            initialize(rect.x, r, r)
+        end
+
         protected def type
             LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_ROUND_RECT
         end

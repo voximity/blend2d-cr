@@ -18,6 +18,11 @@ with Blend2D's C API much easier. However, you can still use the C API directly 
     ```
 3. Add `require "blend2d"` to the top of your source file
 
+### Getting Started
+
+The Blend2D website has a Getting Started page of its own. See `GETTING_STARTED.md` for this library's
+own equivalent using the same examples using blend2d-cr.
+
 ### Examples
 
 #### Composition

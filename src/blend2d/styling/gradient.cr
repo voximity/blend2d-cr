@@ -62,15 +62,15 @@ module Blend2D::Styling
         end
 
         # Creates a new radial gradient with the specified parameters.
-        def Gradient.radial(x0, y0, x1, y1, r0, extend_mode = ExtendMode::Pad)
+        def Gradient.radial(x0, y0, x1, y1, r, extend_mode = ExtendMode::Pad)
             gradient = Gradient.allocate
-            gradient.init GradientType::Radial, LibBlend2D::BLRadialGradientValues.new(x0: x0, y0: y0, x1: x1, y1: y1, r0: r0), extend_mode
+            gradient.init GradientType::Radial, LibBlend2D::BLRadialGradientValues.new(x0: x0, y0: y0, x1: x1, y1: y1, r0: r), extend_mode
             gradient
         end
 
         # Creates a new radial gradient with the specified parameters.
-        def Gradient.radial(a : Point, b : Point, r0, extend_mode = ExtendMode::Pad)
-            Gradient.radial(a.x, a.y, b.x, b.y, r0, extend_mode)
+        def Gradient.radial(a : Point, b : Point, r, extend_mode = ExtendMode::Pad)
+            Gradient.radial(a.x, a.y, b.x, b.y, r, extend_mode)
         end
 
         # Creates a new conical gradient with the specified parameters.

@@ -7,7 +7,7 @@ ctx = Blend2D::Context.new img # Create a context and bind it to the image
 ctx.composition_operator = Blend2D::CompositionOperator::SourceCopy
 ctx.fill_all
 
-# Set some simple colors up
+# Set some simple colors up (also available as Blend2D::RGBA32::COLOR)
 red = Blend2D::RGBA32.new 255, 0, 0, 255
 green = Blend2D::RGBA32.new 0, 255, 0, 255
 blue = Blend2D::RGBA32.new 0, 0, 255, 255
