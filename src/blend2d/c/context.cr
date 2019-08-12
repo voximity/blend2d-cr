@@ -77,8 +77,8 @@ module Blend2D::C
         fun context_set_stroke_dash_offset = blContextSetStrokeDashOffset(self : BLContextCore*, dashOffset : Float64) : BLResult
         # fun context_set_stroke_dash_array = blContextSetStrokeDashArray(self : BLContextCore*, dashArray : BLArrayCore*) : BLResult
         fun context_set_stroke_transform_order = blContextSetStrokeTransformOrder(self : BLContextCore*, transformOrder : UInt32) : BLResult
-        # fun context_get_stroke_options = blContextGetStrokeOptions(self : BLContextCore*, options : BLStrokeOptionsCore*) : BLResult
-        # fun context_set_stroke_options = blContestSetStrokeOptions(self : BLContextCore*, options : BLStrokeOptionsCore*) : BLResult
+        fun context_get_stroke_options = blContextGetStrokeOptions(self : BLContextCore*, options : BLStrokeOptionsCore*) : BLResult
+        fun context_set_stroke_options = blContestSetStrokeOptions(self : BLContextCore*, options : BLStrokeOptionsCore*) : BLResult
         fun context_clip_to_rect_i = blContextClipToRectI(self : BLContextCore*, rect : BLRectI*) : BLResult
         fun context_clip_to_rect_d = blContextClipToRectD(self : BLContextCore*, rect : BLRect*) : BLResult
         fun context_restore_clipping = blContextRestoreClipping(self : BLContextCore*) : BLResult
