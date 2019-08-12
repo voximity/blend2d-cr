@@ -118,7 +118,7 @@ module Blend2D::C
             width : Float64
             miterLimit : Float64
             dashOffset : Float64
-            dashArray : BLArray
+            dashArray : BLArrayCore
         end
 
         struct BLContextCookie

@@ -1,28 +1,6 @@
 include Blend2D::C
 
 module Blend2D::Geometry
-    enum StrokeJoin : UInt8
-        MiterClip
-        MiterBevel
-        MiterRound
-        Bevel
-        Round
-    end
-
-    enum StrokeCapPosition : UInt8
-        Start
-        End
-    end
-
-    enum StrokeCap : UInt8
-        Butt
-        Square
-        Round
-        ReversedRound
-        Triangle
-        ReversedTriangle
-    end
-
     class StrokeOptions
         @core = uninitialized LibBlend2D::BLStrokeOptionsCore
 

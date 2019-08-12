@@ -1,38 +1,6 @@
 include Blend2D::C
 
 module Blend2D::Rendering
-    enum CompositionOperator : UInt32
-        SourceOver
-        SourceCopy
-        SourceIn
-        SourceOut
-        SourceAtop
-        DestinationOver
-        DestinationCopy
-        DestinationIn
-        DestinationOut
-        DestinationAtop
-        ExclusiveOr
-        Clear
-        Plus
-        Minus
-        Multiply
-        Screen
-        Overlay
-        Darken
-        Lighten
-        ColorDodge
-        ColorBurn
-        LinearBurn
-        LinearLight
-        PinLight
-        HardLight
-        SoftLight
-        Difference
-        Exclusion
-        Count
-    end
-
     class ContextCookie
         @core = uninitialized LibBlend2D::BLContextCookie
 
@@ -329,6 +297,8 @@ module Blend2D::Rendering
         def fill_geometry(geometry : GeometryType)
             LibBlend2D.context_fill_geometry(pointer, geometry.type, geometry.pointer)
         end
+
+        # There is intentionally a lack of methods like fill_round_rect, fill_ellipse, fill_triangle
 
         # Fill some text given a `PointI`, `Font`, and `String`.
         def fill_text(point : PointI, font : Font, text : String, encoding : TextEncoding = TextEncoding::UTF8)

@@ -1,12 +1,6 @@
 include Blend2D::C
 
 module Blend2D::Geometry
-    enum GeometryDirection
-        None
-        Clockwise
-        CounterClockwise
-    end
-
     class Path < BLStructure
         # Initializes a path.
         def initialize
