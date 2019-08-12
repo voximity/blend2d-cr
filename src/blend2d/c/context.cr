@@ -107,6 +107,20 @@ module Blend2D::C
         fun context_blit_scaled_image_i = blContextBlitScaledImageI(self : BLContextCore*, rect : BLRectI*, img : BLImageCore*, imgArea : BLRectI*) : BLResult
         fun context_blit_scaled_image_d = blContextBlitScaledImageD(self : BLContextCore*, rect : BLRect*, img : BLImageCore*, imgArea : BLRectI*) : BLResult
 
+        struct BLStrokeOptionsCore
+            startCap : UInt8
+            endCap : UInt8
+            join : UInt8
+            transformOrder : UInt8
+            reserved : UInt8[4]
+            caps : UInt8[2]
+            hints : UInt64
+            width : Float64
+            miterLimit : Float64
+            dashOffset : Float64
+            dashArray : BLArray
+        end
+
         struct BLContextCookie
             data : UInt64[2]
         end

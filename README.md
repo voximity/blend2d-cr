@@ -9,6 +9,7 @@ with Blend2D's C API much easier. However, you can still use the C API directly 
 
 1. Obtain and build [Blend2D](https://github.com/blend2d/blend2d)
     * For Arch, you can use your favorite AUR helper: `yay -S blend2d-git`
+    * Further instructions are available at [blend2d.com/download.html](https://blend2d.com/download.html).
 2. Add to your `shard.yml`'s dependencies
     ```cr
     dependencies:
@@ -58,8 +59,7 @@ ctx.fill_geometry Blend2D::Geometry::RoundRect.new x: 195, y: 195, w: 270, h: 27
 ctx.end
 
 # Create a codec from one of the built-in ones, and output "example/composition.bmp"
-codec = Blend2D::Codec.new
-codec.find_by_name "BMP"
+codec = Blend2D::Codec.new "BMP"
 image.write_to_file "example/composition.bmp", codec
 ```
 
@@ -98,3 +98,7 @@ method or type, either create an issue or a PR and I will work on implementing i
 I will maintain this library as Blend2D changes. Please keep in mind that not only is this binding in a very early state
 (e.g. not all features will work), Blend2D is in also in a very early state, and everything is subject to change. There will
 be breaking changes, and this library may not be up-to-date all of the time.
+
+## Docs
+
+Run `crystal docs`.

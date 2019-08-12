@@ -45,6 +45,10 @@ module Blend2D::Imaging
             image_data.size.h
         end
 
+        def area
+            RectI.new width, height
+        end
+
         # TODO: finish these extra methods if they're high-level worthy
 
         # init as from data

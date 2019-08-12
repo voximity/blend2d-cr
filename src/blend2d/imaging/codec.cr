@@ -2,10 +2,12 @@ module Blend2D::Imaging
     class Codec < BLStructure
         @core = uninitialized LibBlend2D::BLImageCodecCore
 
+        # Initialize a blank image codec.
         def initialize
             LibBlend2D.image_codec_init(pointer)
         end
 
+        # Initialize a blank codec and assign one of the built-in codecs to it.
         def initialize(name : String)
             initialize
             find_by_name name
@@ -19,6 +21,7 @@ module Blend2D::Imaging
             LibBlend2D.image_codec_reset(pointer)
         end
 
+        # Assign a built-in codec to this codec.
         def find_by_name(name)
             LibBlend2D.image_codec_find_by_name(pointer, name, LibC::SizeT::MAX, nil)
         end
