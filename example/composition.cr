@@ -8,7 +8,7 @@ ctx = Blend2D::Context.new image
 ctx.composition_operator = Blend2D::CompositionOperator::SourceCopy
 ctx.fill_all
 
- # Create a radial gradient for the circle
+# Create a radial gradient for the circle
 radial_gradient = Blend2D::Gradient.radial x0: 180, y0: 180, x1: 180, y1: 180, r: 180
 radial_gradient.add_stop 0, Blend2D::RGBA32::WHITE
 radial_gradient.add_stop 1, Blend2D::RGBA32.new r: 255, g: 150, b: 80, a: 255

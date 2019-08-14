@@ -1,7 +1,7 @@
 require "../src/blend2d.cr"
 
 img = Blend2D::Image.new 500, 260 # Create a new image that is 500x500
-ctx = Blend2D::Context.new img # Create a context and bind it to the image
+ctx = Blend2D::Context.new img    # Create a context and bind it to the image
 
 # Clear the image
 ctx.composition_operator = Blend2D::CompositionOperator::SourceCopy
