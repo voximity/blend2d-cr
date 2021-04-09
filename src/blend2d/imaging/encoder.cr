@@ -16,12 +16,17 @@ module Blend2D::Imaging
       LibBlend2D.image_encoder_destroy(pointer)
     end
 
-    # write frame
     def write(image : Image)
       LibBlend2D.image_encoder_write_frame(pointer, out array_core, image.pointer)
       array = [] of UInt8
       BLArray.new(array_core).fill_array(array)
       array
+    end
+
+    def write_io(image : Image)
+      LibBlend2D.image_encoder_write_Frame(pointer, out array_core, image.pointer)
+      arr = BLArray.new(array_core)
+      IO::Memory.new(arr.to_slice(UInt8))
     end
   end
 end
