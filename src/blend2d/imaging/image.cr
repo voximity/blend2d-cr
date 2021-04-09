@@ -29,7 +29,7 @@ module Blend2D::Imaging
     end
 
     def finalize
-      LibBlend2D.image_reset(pointer)
+      LibBlend2D.image_destroy(pointer)
     end
 
     protected def image_data

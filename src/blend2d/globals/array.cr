@@ -18,7 +18,7 @@ module Blend2D::Globals
     end
 
     def finalize
-      LibBlend2D.array_reset(pointer)
+      LibBlend2D.array_destroy(pointer)
     end
 
     def <<(item : BLStructure)

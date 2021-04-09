@@ -19,7 +19,7 @@ module Blend2D::Styling
     end
 
     def finalize
-      LibBlend2D.pattern_reset(pointer)
+      LibBlend2D.pattern_destroy(pointer)
     end
   end
 end

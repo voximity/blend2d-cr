@@ -37,6 +37,7 @@ module Blend2D::C
     fun context_init = blContextInit(self : BLContextCore*) : BLResult
     fun context_init_as = blContextInitAs(self : BLContextCore*, image : BLImageCore*, options : BLContextCreateInfo*) : BLResult
     fun context_reset = blContextReset(self : BLContextCore*) : BLResult
+    fun context_destroy = blContextDestroy(self : BLContextCore*) : BLResult
     fun context_assign_move = blContextAssignMove(self : BLContextCore*, other : BLContextCore*) : BLResult
     fun context_assign_weak = blContextAssignMove(self : BLContextCore*, other : BLContextCore*) : BLResult
     fun context_get_type = blContextGetType(self : BLContextCore*) : BLResult

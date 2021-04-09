@@ -14,6 +14,7 @@ module Blend2D::C
     fun image_init_as = blImageInitAs(self : BLImageCore*, w : Int32, h : Int32, format : BLFormat) : BLResult
     # fun image_init_as_from_data = blImageInitAsFromData(self : BLImageCore*, w : Int, h : Int, format : UInt32, pixelData : Void*, stride : Void*, destroyFunc : BLDestroyImplFunc, destroyData : Void*) : BLResult
     fun image_reset = blImageReset(self : BLImageCore*) : BLResult
+    fun image_destroy = blImageDestroy(self : BLImageCore*) : BLResult
     fun image_assign_move = blImageAssignMove(self : BLImageCore*, other : BLImageCore*) : BLResult
     fun image_assign_weak = blImageAssignWeak(self : BLImageCore*, other : BLImageCore*) : BLResult
     fun image_assign_deep = blImageAssignDeep(self : BLImageCore*, other : BLImageCore*) : BLResult

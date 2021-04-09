@@ -3,6 +3,7 @@ module Blend2D::C
   lib LibBlend2D
     fun image_codec_init = blImageCodecInit(self : BLImageCodecCore*) : BLResult
     fun image_codec_reset = blImageCodecReset(self : BLImageCodecCore*) : BLResult
+    fun image_codec_destroy = blImageCodecDestroy(BLImageCodecCore*) : BLResult
     fun image_codec_assign_weak = blImageCodecAssignWeak(self : BLImageCodecCore*, other : BLImageCodecCore*) : BLResult
     fun image_codec_find_by_name = blImageCodecFindByName(self : BLImageCodecCore*, name : LibC::Char*, size : LibC::SizeT, codecs : BLArrayCore*) : BLResult
     fun image_codec_find_by_data = blImageCodecFindByData(self : BLImageCodecCore*, data : Void*, size : LibC::SizeT, codecs : BLArrayCore*) : BLResult

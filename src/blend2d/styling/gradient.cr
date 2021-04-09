@@ -73,7 +73,7 @@ module Blend2D::Styling
     end
 
     def finalize
-      LibBlend2D.gradient_reset(pointer)
+      LibBlend2D.gradient_destroy(pointer)
     end
 
     def shrink

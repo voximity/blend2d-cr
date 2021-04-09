@@ -14,7 +14,7 @@ module Blend2D::Text
     end
 
     def finalize
-      LibBlend2D.font_face_reset(pointer)
+      LibBlend2D.font_face_destroy(pointer)
     end
 
     # i also don't understand the purpose of most of these methods. see `font.cr` for more info

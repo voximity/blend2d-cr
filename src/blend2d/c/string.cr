@@ -10,6 +10,7 @@ module Blend2D::C
 
     fun string_init = blStringInit(BLStringCore*) : BLResult
     fun string_reset = blStringReset(BLStringCore*) : BLResult
+    fun string_destroy = blStringDestroy(BLStringCore*) : BLResult
     fun string_get_size = blStringGetSize(BLStringCore*) : LibC::SizeT
     fun string_get_data = blStringGetData(BLStringCore*) : LibC::Char*
     fun string_clear = blStringClear(BLStringCore*) : BLResult

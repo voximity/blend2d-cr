@@ -18,7 +18,7 @@ module Blend2D::Text
     end
 
     def finalize
-      LibBlend2D.glyph_buffer_reset(pointer)
+      LibBlend2D.glyph_buffer_destroy(pointer)
     end
 
     # Set the `GlyphBuffer`'s text to the one specified.

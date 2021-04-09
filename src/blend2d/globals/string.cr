@@ -18,7 +18,7 @@ module Blend2D::Globals
     end
 
     def finalize
-      LibBlend2D.string_reset(pointer)
+      LibBlend2D.string_destroy(pointer)
     end
 
     def content

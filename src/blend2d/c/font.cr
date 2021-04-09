@@ -5,6 +5,7 @@ module Blend2D::C
 
     fun font_init = blFontInit(BLFontCore*) : BLResult
     fun font_reset = blFontReset(BLFontCore*) : BLResult
+    fun font_destroy = blFontDestroy(BLFontCore*) : BLResult
     fun font_equals = blFontEquals(BLFontCore*, BLFontCore*) : Bool
     fun font_create_from_face = blFontCreateFromFace(BLFontCore*, BLFontFaceCore*, Float32) : BLResult
     fun font_shape = blFontShape(BLFontCore*, BLGlyphBufferCore*) : BLResult
@@ -24,6 +25,7 @@ module Blend2D::C
 
     fun font_face_init = blFontFaceInit(BLFontFaceCore*) : BLResult
     fun font_face_reset = blFontFaceReset(BLFontFaceCore*) : BLResult
+    fun font_face_destroy = blFontFaceDestroy(BLFontFaceCore*) : BLResult
     fun font_face_equals = blFontFaceEquals(BLFontFaceCore*, BLFontFaceCore*) : Bool
     fun font_face_create_from_file = blFontFaceCreateFromFile(BLFontFaceCore*, LibC::Char*, UInt32) : BLResult
     fun font_face_create_from_loader = blFontFaceCreateFromLoader(BLFontFaceCore*, BLFontLoaderCore*, UInt32) : BLResult
@@ -33,6 +35,7 @@ module Blend2D::C
 
     fun glyph_buffer_init = blGlyphBufferInit(BLGlyphBufferCore*) : BLResult
     fun glyph_buffer_reset = blGlyphBufferReset(BLGlyphBufferCore*) : BLResult
+    fun glyph_buffer_destroy = blGlyphBufferDestroy(BLGlyphBufferCore*) : BLResult
     fun glyph_buffer_clear = blGlyphBufferClear(BLGlyphBufferCore*) : BLResult
     fun glyph_buffer_get_size = blGlyphBufferGetSize(BLGlyphBufferCore*) : LibC::SizeT
     fun glyph_buffer_get_flags = blGlyphBufferGetFlags(BLGlyphBufferCore*) : UInt32

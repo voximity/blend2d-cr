@@ -14,7 +14,7 @@ module Blend2D::Text
     end
 
     def finalize
-      LibBlend2D.font_reset(pointer)
+      LibBlend2D.font_destroy(pointer)
     end
 
     def shape(buffer : GlyphBuffer)

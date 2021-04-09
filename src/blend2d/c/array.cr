@@ -3,6 +3,7 @@ module Blend2D::C
   lib LibBlend2D
     fun array_init = blArrayInit(BLArrayCore*, UInt32) : BLResult
     fun array_reset = blArrayReset(BLArrayCore*) : BLResult
+    fun array_destroy = blArrayDestroy(BLArrayCore*) : BLResult
     # fun array_init_from_data
     fun array_get_size = blArrayGetSize(BLArrayCore*) : LibC::SizeT
     fun array_get_capacity = blArrayGetCapacity(BLArrayCore*) : LibC::SizeT

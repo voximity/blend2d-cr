@@ -4,6 +4,7 @@ module Blend2D::C
     fun gradient_init = blGradientInit(BLGradientCore*) : BLResult
     fun gradient_init_as = blGradientInitAs(BLGradientCore*, UInt32, Void*, UInt32, BLGradientStop*, LibC::SizeT, BLMatrix2D*) : BLResult
     fun gradient_create = blGradientCreate(BLGradientCore*, UInt32, Void*, UInt32, BLGradientStop*, LibC::SizeT, BLMatrix2D*) : BLResult
+    fun gradient_destroy = blGradientDestroy(BLGradientCore*) : BLResult
     fun gradient_reset = blGradientReset(BLGradientCore*) : BLResult
     fun gradient_assign_move = blGradientAssignMove(BLGradientCore*, BLGradientCore*) : BLResult
     fun gradient_assign_weak = blGradientAssignWeak(BLGradientCore*, BLGradientCore*) : BLResult

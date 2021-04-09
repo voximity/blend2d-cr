@@ -13,7 +13,7 @@ module Blend2D::Geometry
     end
 
     def finalize
-      LibBlend2D.path_reset(pointer)
+      LibBlend2D.path_destroy(pointer)
     end
 
     def vertices

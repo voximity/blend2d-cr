@@ -1,9 +1,9 @@
 name: blend2d
-version: 0.1.0
+version: 0.2.0
 
 authors:
   - voximity <vox@voximity.net>
 
-crystal: 0.30.0
+crystal: 1.0.0
 
 license: MIT

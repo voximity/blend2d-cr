@@ -25,7 +25,7 @@ module Blend2D::Rendering
     end
 
     def finalize
-      LibBlend2D.context_reset(pointer)
+      LibBlend2D.context_destroy(pointer)
     end
 
     # Ends this context.

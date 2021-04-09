@@ -3,6 +3,7 @@ module Blend2D::C
   lib LibBlend2D
     fun path_init = blPathInit(self : BLPathCore*) : BLResult
     fun path_reset = blPathReset(self : BLPathCore*) : BLResult
+    fun path_destroy = blPathDestroy(BLPathCore*) : BLResult
     fun path_get_size = blPathGetSize(self : BLPathCore*) : LibC::SizeT
     fun path_get_capacity = blPathGetCapacity(self : BLPathCore*) : LibC::SizeT
     fun path_get_command_data = blPathGetCommandData(self : BLPathCore*) : UInt8*

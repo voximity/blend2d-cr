@@ -4,6 +4,7 @@ module Blend2D::C
     fun pattern_init = blPatternInit(BLPatternCore*) : BLResult
     fun pattern_init_as = blPatternInitAs(BLPatternCore*, BLImageCore*, BLRectI*, UInt32, BLMatrix2D*) : BLResult
     fun pattern_reset = blPatternReset(BLPatternCore*) : BLResult
+    fun pattern_destroy = blPatternDestroy(BLPatternCore*) : BLResult
     fun pattern_create = blPatternCreate(BLPatternCore*, BLImageCore*, BLRectI*, UInt32, BLMatrix2D*) : BLResult
     fun pattern_set_image = blPatternSetImage(BLPatternCore*, BLImageCore*, BLRectI*) : BLResult
     fun pattern_set_area = blPatternSetArea(BLPatternCore*, BLRectI*) : BLResult

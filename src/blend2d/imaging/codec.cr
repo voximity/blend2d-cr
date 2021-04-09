@@ -18,7 +18,7 @@ module Blend2D::Imaging
     end
 
     def finalize
-      LibBlend2D.image_codec_reset(pointer)
+      LibBlend2D.image_codec_destroy(pointer)
     end
 
     # Assign a built-in codec to this codec.
