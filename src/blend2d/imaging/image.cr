@@ -19,6 +19,13 @@ module Blend2D::Imaging
       LibBlend2D.image_read_from_file(pointer, file_name, nil)
     end
 
+    # Initialize an image from an IO.
+    def initialize(io : IO)
+      slice = io.to_slice
+      LibBlend2D.image_init(pointer)
+      LibBlend2D.image_read_from_data(pointer, Pointer(Void).new(slice.to_unsafe.address), slice.size, nil)
+    end
+
     # Initialize an image from the given file with a given codec.
     # def initialize(file_name : String, codec : Codec)
     #    initialize(file_name, [codec])
