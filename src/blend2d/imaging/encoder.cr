@@ -17,5 +17,11 @@ module Blend2D::Imaging
     end
 
     # write frame
+    def write(image : Image)
+      LibBlend2D.image_encoder_write_frame(pointer, out array_core, image.pointer)
+      array = [] of UInt8
+      BLArray.new(array_core).fill_array(array)
+      array
+    end
   end
 end

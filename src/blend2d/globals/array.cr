@@ -13,6 +13,10 @@ module Blend2D::Globals
       array.each { |s| self << s }
     end
 
+    def initialize(array_core : LibBlend2D::BLArrayCore)
+      @core = array_core
+    end
+
     protected def pointer : Pointer(LibBlend2D::BLArrayCore)
       pointerof(@core)
     end
@@ -23,6 +27,15 @@ module Blend2D::Globals
 
     def <<(item : BLStructure)
       LibBlend2D.array_append_item(pointer, item.pointer)
+    end
+
+    def fill_array(array : Array(T)) forall T
+      data_pointer = LibBlend2D.array_get_data(pointer)
+      size = LibBlend2D.array_get_size(pointer)
+
+      size.times do |i|
+        array << Pointer.new(data_pointer + i * sizeof(T)).value
+      end
     end
   end
 end
