@@ -23,10 +23,14 @@ module Blend2D::Imaging
       array
     end
 
-    def write_io(image : Image)
-      LibBlend2D.image_encoder_write_Frame(pointer, out array_core, image.pointer)
+    def write_slice(image : Image)
+      LibBlend2D.image_encoder_write_frame(pointer, out array_core, image.pointer)
       arr = BLArray.new(array_core)
-      IO::Memory.new(arr.to_slice(UInt8))
+      arr.to_slice(UInt8)
+    end
+
+    def write_io(image : Image)
+      IO::Memory.new(write_slice(image))
     end
   end
 end
