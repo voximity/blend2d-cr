@@ -19,8 +19,8 @@ module Blend2D::Styling
       source_rect ||= RectI.new 0, 0, image.width, image.height
       dest_rect ||= source_rect
       matrix = Matrix.new
-      matrix.set_translation(dest_rect.x.to_f64, dest_rect.y.to_f64)
-      matrix.set_scaling(dest_rect.w / source_rect.w, dest_rect.h / source_rect.h)
+      matrix.apply_operation(MatrixOperation::Translate, [dest_rect.x.to_f64, dest_rect.y.to_f64])
+      matrix.apply_operation(MatrixOperation::Scale, [dest_rect.w / source_rect.w, dest_rect.h / source_rect.h])
 
       LibBlend2D.pattern_init_as(pointer, image.pointer, source_rect.pointer, extend_mode, matrix.pointer)
     end
