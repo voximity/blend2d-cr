@@ -30,6 +30,17 @@ module Blend2D::C
 
     # fun image_write_to_data = blImageWriteToData
 
+    struct BLImageInfo
+      size : BLSizeI
+      density : BLSize
+      flags : UInt32
+      depth : UInt16
+      planeCount : UInt16
+      frameCount : UInt64
+      format : LibC::Char[16]
+      compression : LibC::Char[16]
+    end
+
     struct BLImageData
       pixelData : Void*
       stride : Int32*

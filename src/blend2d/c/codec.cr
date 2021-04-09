@@ -8,8 +8,8 @@ module Blend2D::C
     fun image_codec_find_by_name = blImageCodecFindByName(self : BLImageCodecCore*, name : LibC::Char*, size : LibC::SizeT, codecs : BLArrayCore*) : BLResult
     fun image_codec_find_by_data = blImageCodecFindByData(self : BLImageCodecCore*, data : Void*, size : LibC::SizeT, codecs : BLArrayCore*) : BLResult
     fun image_codec_inspect_data = blImageCodecInspectData(self : BLImageCodecCore*, data : Void*, size : LibC::SizeT) : UInt32
-    # fun image_codec_create_decoder = blImageCodecCreateDecoder(self : BLImageCodecCore*, dst : BLImageDecoderCore*) : BLResult
-    # fun image_codec_create_encoder = blImageCodecCreateEncoder(self : BLImageCodecCore*, dst : BLImageEncoderCore*) : BLResult
+    fun image_codec_create_decoder = blImageCodecCreateDecoder(self : BLImageCodecCore*, dst : BLImageDecoderCore*) : BLResult
+    fun image_codec_create_encoder = blImageCodecCreateEncoder(self : BLImageCodecCore*, dst : BLImageEncoderCore*) : BLResult
     fun image_codec_array_init_built_in_codecs = blImageCodecArrayInitBuiltInCodecs(self : BLArrayCore*) : BLResult
     fun image_codec_array_assign_built_in_codecs = blImageCodecArrayAssignBuiltInCodecs(self : BLArrayCore*) : BLResult
     fun image_codec_add_to_built_in = blImageCodecAddToBuiltIn(codec : BLImageCodecCore*) : BLResult

@@ -33,8 +33,14 @@ module Blend2D::Imaging
     # inspect data
 
     # create decoder
+    def create_decoder
+      ImageDecoder.new(self)
+    end
 
     # create encoder
+    def create_encoder
+      ImageEncoder.new(self)
+    end
 
     # array init built in codecs
 
