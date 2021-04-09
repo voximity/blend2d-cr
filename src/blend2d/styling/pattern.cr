@@ -11,7 +11,7 @@ module Blend2D::Styling
     def initialize(image : Image, area : RectI? = nil, matrix : Matrix? = nil, extend_mode : ExtendMode = ExtendMode::Pad)
       area ||= RectI.new 0, 0, image.width, image.height
 
-      LibBlend2D.pattern_init_as(pointer, image.pointer, area.pointer, extend_mode, matrix.nil? ? Pointer(LibBlend2D::BLMatrixCore).null : matrix.pointer)
+      LibBlend2D.pattern_init_as(pointer, image.pointer, area.pointer, extend_mode, matrix.nil? ? Pointer(LibBlend2D::BLMatrix2D).null : matrix.pointer)
     end
 
     protected def pointer : Pointer(LibBlend2D::BLPatternCore)
