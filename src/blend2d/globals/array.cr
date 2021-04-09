@@ -37,5 +37,11 @@ module Blend2D::Globals
         array << Pointer.new(data_pointer + i * sizeof(T)).value
       end
     end
+
+    def to_slice(x : T.class) forall T
+      data_pointer = LibBlend2D.array_get_data(pointer)
+      size = LibBlend2D.array_get_size(pointer)
+      Slice.new(Pointer(T).new(data_pointer.address), size)
+    end
   end
 end
