@@ -14,7 +14,7 @@ module Blend2D::Styling
       LibBlend2D.pattern_init_as(pointer, image.pointer, area.pointer, extend_mode, matrix ? matrix.pointer : nil)
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLPatternCore)
       pointerof(@core)
     end
 

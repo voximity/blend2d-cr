@@ -14,6 +14,7 @@ module Blend2D::Rendering
     Clear
     Plus
     Minus
+    Modulate
     Multiply
     Screen
     Overlay

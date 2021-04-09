@@ -27,11 +27,11 @@ module Blend2D::Geometry
       initialize(rect.x, r, r)
     end
 
-    protected def type
+    protected def type : LibBlend2D::BLGeometryType
       LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_ROUND_RECT
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLRoundRect)
       pointerof(@core)
     end
   end

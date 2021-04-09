@@ -16,6 +16,7 @@ module Blend2D::C
       BL_COMP_OP_CLEAR
       BL_COMP_OP_PLUS
       BL_COMP_OP_MINUS
+      BL_COMP_OP_MODULATE
       BL_COMP_OP_MULTIPLY
       BL_COMP_OP_SCREEN
       BL_COMP_OP_OVERLAY
@@ -60,6 +61,7 @@ module Blend2D::C
     fun context_get_fill_style_rgba32 = blContextGetFillStyleRgba32(self : BLContextCore*, rgba32 : UInt32*) : BLResult
     fun context_get_fill_style_rgba64 = blContextGetFillStyleRgba64(self : BLContextCore*, rgba64 : UInt64*) : BLResult
     fun context_set_fill_style = blContextSetFillStyle(self : BLContextCore*, object : Void*) : BLResult
+    fun context_set_fill_style_object = blContextSetFillStyleObject(self : BLContextCore*, object : Void*) : BLResult
     fun context_set_fill_style_rgba32 = blContextSetFillStyleRgba32(self : BLContextCore*, rgba32 : UInt32) : BLResult
     fun context_set_fill_style_rgba64 = blContextSetFillStyleRgba64(self : BLContextCore*, rgba64 : UInt64) : BLResult
     fun context_set_fill_rule = blContextSetFillRule(self : BLContextCore*, fillRule : UInt32) : BLResult
@@ -67,6 +69,7 @@ module Blend2D::C
     fun context_get_stroke_style_rgba32 = blContextGetStrokeStyleRgba32(self : BLContextCore*, rgba32 : UInt32*) : BLResult
     fun context_get_stroke_style_rgba64 = blContextGetStrokeStyleRgba64(self : BLContextCore*, rgba64 : UInt64*) : BLResult
     fun context_set_stroke_style = blContextSetStrokeStyle(self : BLContextCore*, object : Void*) : BLResult
+    fun context_set_stroke_style_object = blContextSetStrokeStyleObject(self : BLContextCore*, object : Void*) : BLResult
     fun context_set_stroke_style_rgba32 = blContextSetStrokeStyleRgba32(self : BLContextCore*, rgba32 : UInt32) : BLResult
     fun context_set_stroke_style_rgba64 = blContextSetStrokeStyleRgba64(self : BLContextCore*, rgba64 : UInt64) : BLResult
     fun context_set_stroke_width = blContextSetStrokeWidth(self : BLContextCore*, width : Float64) : BLResult

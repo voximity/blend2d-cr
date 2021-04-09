@@ -13,7 +13,7 @@ module Blend2D::Globals
       array.each { |s| self << s }
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLArrayCore)
       pointerof(@core)
     end
 

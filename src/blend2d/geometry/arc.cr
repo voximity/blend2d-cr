@@ -1,12 +1,6 @@
 include Blend2D::C
 
 module Blend2D::Geometry
-  enum ArcType
-    Arc
-    Chord
-    Pie
-  end
-
   struct Arc < GeometryType
     getter cx : Float64
     getter cy : Float64
@@ -30,11 +24,11 @@ module Blend2D::Geometry
       Point.new x: cx, y: cy
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLArc)
       pointerof(@core)
     end
 
-    protected def type
+    protected def type : LibBlend2D::BLGeometryType
       case arc_type
       when ArcType::Chord
         LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_CHORD

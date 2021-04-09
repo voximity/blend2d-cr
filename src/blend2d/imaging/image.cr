@@ -24,7 +24,7 @@ module Blend2D::Imaging
     #    initialize(file_name, [codec])
     # end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLImageCore)
       pointerof(@core)
     end
 

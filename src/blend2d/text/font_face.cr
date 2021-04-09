@@ -9,7 +9,7 @@ module Blend2D::Text
       LibBlend2D.font_face_create_from_file(pointer, file_name, 0)
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLFontFaceCore)
       pointerof(@core)
     end
 

@@ -8,7 +8,7 @@ module Blend2D::Geometry
       LibBlend2D.path_init(pointer)
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLPathCore)
       pointerof(@core)
     end
 

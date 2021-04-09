@@ -3,6 +3,7 @@ module Blend2D::C
   lib LibBlend2D
     fun gradient_init = blGradientInit(BLGradientCore*) : BLResult
     fun gradient_init_as = blGradientInitAs(BLGradientCore*, UInt32, Void*, UInt32, BLGradientStop*, LibC::SizeT, BLMatrix2D*) : BLResult
+    fun gradient_create = blGradientCreate(BLGradientCore*, UInt32, Void*, UInt32, BLGradientStop*, LibC::SizeT, BLMatrix2D*) : BLResult
     fun gradient_reset = blGradientReset(BLGradientCore*) : BLResult
     fun gradient_assign_move = blGradientAssignMove(BLGradientCore*, BLGradientCore*) : BLResult
     fun gradient_assign_weak = blGradientAssignWeak(BLGradientCore*, BLGradientCore*) : BLResult
@@ -63,8 +64,6 @@ module Blend2D::C
     end
 
     struct BLGradientImpl
-      stops : BLGradientStop*
-      size : LibC::SizeT
       capacity : LibC::SizeT
       refCount : LibC::SizeT
       implType : UInt8
@@ -74,6 +73,8 @@ module Blend2D::C
       extendMode : UInt8
       matrixType : UInt8
       reserved : UInt8[1]
+      stops : BLGradientStop*
+      size : LibC::SizeT
       matrix : BLMatrix2D
       values : Float64[6]
       linear : BLLinearGradientValues

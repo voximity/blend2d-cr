@@ -20,7 +20,7 @@ module Blend2D::Rendering
       LibBlend2D.context_init_as(pointer, @image.pointer, nil)
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLContextCore)
       pointerof(@core)
     end
 
@@ -152,12 +152,12 @@ module Blend2D::Rendering
 
     # Set the fill style of this context to a `Gradient`.
     def fill_style=(gradient : Gradient)
-      LibBlend2D.context_set_fill_style(pointer, gradient.pointer)
+      LibBlend2D.context_set_fill_style_object(pointer, gradient.pointer)
     end
 
     # Set the fill style of this context to a `Pattern`.
     def fill_style=(pattern : Pattern)
-      LibBlend2D.context_set_fill_style(pointer, pattern.pointer)
+      LibBlend2D.context_set_fill_style_object(pointer, pattern.pointer)
     end
 
     # set fill rule
@@ -179,12 +179,12 @@ module Blend2D::Rendering
 
     # Set the stroke style of this context to a `Gradient`.
     def stroke_style=(gradient : Gradient)
-      LibBlend2D.context_set_stroke_style(pointer, gradient.pointer)
+      LibBlend2D.context_set_stroke_style_object(pointer, gradient.pointer)
     end
 
     # Set the stroke style of this context to a `Pattern`.
     def stroke_style=(pattern : Pattern)
-      LibBlend2D.context_set_stroke_style(pointer, pattern.pointer)
+      LibBlend2D.context_set_stroke_style_object(pointer, pattern.pointer)
     end
 
     # Set this context's stroke width.

@@ -68,7 +68,7 @@ module Blend2D::Styling
       LibBlend2D.gradient_init_as(pointer, gradient_type, pointerof(value), extend_mode, nil, 0, nil)
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLGradientCore)
       pointerof(@core)
     end
 

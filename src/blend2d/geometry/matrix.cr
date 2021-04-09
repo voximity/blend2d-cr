@@ -1,23 +1,6 @@
 include Blend2D::C
 
 module Blend2D::Geometry
-  enum MatrixOperation
-    Reset
-    Assign
-    Translate
-    Scale
-    Skew
-    Rotate
-    RotatePoint
-    Transform
-    PostTranslate
-    PostScale
-    PostSkew
-    PostRotate
-    PostRotatePoint
-    PostTransform
-  end
-
   class Matrix
     @core = uninitialized LibBlend2D::BLMatrix2D
 

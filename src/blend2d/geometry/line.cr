@@ -25,11 +25,11 @@ module Blend2D::Geometry
       Point.new x: x1, y: y1
     end
 
-    protected def type
+    protected def type : LibBlend2D::BLGeometryType
       LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_LINE
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLLine)
       pointerof(@core)
     end
   end

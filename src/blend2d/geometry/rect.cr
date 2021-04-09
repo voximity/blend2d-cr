@@ -30,11 +30,11 @@ module Blend2D::Geometry
       PointI.new x1, y1
     end
 
-    protected def type
+    protected def type : LibBlend2D::BLGeometryType
       LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_BOXI
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLBoxI)
       pointerof(@core)
     end
   end
@@ -68,11 +68,11 @@ module Blend2D::Geometry
       Point.new x1, y1
     end
 
-    protected def type
+    protected def type : LibBlend2D::BLGeometryType
       LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_BOXD
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLBox)
       pointerof(@core)
     end
   end
@@ -100,11 +100,11 @@ module Blend2D::Geometry
       Point.new x, y
     end
 
-    protected def type
+    protected def type : LibBlend2D::BLGeometryType
       LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_RECTI
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLRectI)
       pointerof(@core)
     end
   end
@@ -132,11 +132,11 @@ module Blend2D::Geometry
       Point.new x, y
     end
 
-    protected def type
+    protected def type : LibBlend2D::BLGeometryType
       LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_RECTD
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLRect)
       pointerof(@core)
     end
   end

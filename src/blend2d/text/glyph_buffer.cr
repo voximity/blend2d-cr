@@ -9,7 +9,7 @@ module Blend2D::Text
       LibBlend2D.glyph_buffer_init(pointer)
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLGlyphBufferCore)
       pointerof(@core)
     end
 

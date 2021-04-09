@@ -21,11 +21,11 @@ module Blend2D::Geometry
       Point.new x: cx, y: cy
     end
 
-    protected def type
+    protected def type : LibBlend2D::BLGeometryType
       LibBlend2D::BLGeometryType::BL_GEOMETRY_TYPE_ELLIPSE
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLEllipse)
       pointerof(@core)
     end
   end

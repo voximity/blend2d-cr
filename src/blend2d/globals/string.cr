@@ -9,7 +9,7 @@ module Blend2D::Globals
       LibBlend2D.string_apply_op_data(pointer, LibBlend2D::BLModifyOp::BL_MODIFY_OP_ASSIGN_FIT, string, string.size)
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLStringCore)
       pointerof(@core)
     end
 

@@ -13,7 +13,7 @@ module Blend2D::Imaging
       find_by_name name
     end
 
-    protected def pointer
+    protected def pointer : Pointer(LibBlend2D::BLImageCodecCore)
       pointerof(@core)
     end
 
