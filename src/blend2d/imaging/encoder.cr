@@ -5,6 +5,7 @@ module Blend2D::Imaging
     @core = uninitialized LibBlend2D::BLImageEncoderCore
 
     def initialize(codec : Codec)
+      LibBlend2D.image_encoder_init(pointer)
       LibBlend2D.image_codec_create_encoder(codec.pointer, pointer)
     end
 
@@ -16,21 +17,18 @@ module Blend2D::Imaging
       LibBlend2D.image_encoder_destroy(pointer)
     end
 
-    def write(image : Image)
-      LibBlend2D.image_encoder_write_frame(pointer, out array_core, image.pointer)
-      array = [] of UInt8
-      BLArray.new(array_core).fill_array(array)
-      array
-    end
-
     def write_slice(image : Image)
-      LibBlend2D.image_encoder_write_frame(pointer, out array_core, image.pointer)
-      arr = BLArray.new(array_core)
-      arr.to_slice(UInt8)
+      LibBlend2D.array_init(out array_core, LibBlend2D::BLImplType::BL_IMPL_TYPE_ARRAY_U8)
+      LibBlend2D.image_encoder_write_frame(pointer, pointerof(array_core), image.pointer)
+      puts LibBlend2D.array_get_capacity(pointerof(array_core))
+      puts LibBlend2D.array_get_size(pointerof(array_core))
+      Slice.new(Pointer(UInt8).new(LibBlend2D.array_get_data(pointerof(array_core)).address), LibBlend2D.array_get_size(pointerof(array_core)))
     end
 
     def write_io(image : Image)
-      IO::Memory.new(write_slice(image))
+      io = IO::Memory.new(write_slice(image))
+      io.seek(0)
+      io
     end
   end
 end

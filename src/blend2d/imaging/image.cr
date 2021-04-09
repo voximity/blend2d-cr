@@ -37,6 +37,20 @@ module Blend2D::Imaging
       data
     end
 
+    def write_io(codec : Codec)
+      LibBlend2D.array_init(out array_core, 3)
+      LibBlend2D.image_write_to_data(pointer, pointerof(array_core), codec.pointer)
+      data = LibBlend2D.array_get_data(pointerof(array_core))
+      size = LibBlend2D.array_get_size(pointerof(array_core))
+      io = IO::Memory.new(size)
+      size.times do |i|
+        value = Pointer(UInt8).new(data.address + i).value
+        io.write_byte(value)
+      end
+      io.seek(0)
+      io
+    end
+
     def width
       image_data.size.w
     end

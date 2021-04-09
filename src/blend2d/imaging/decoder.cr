@@ -5,6 +5,7 @@ module Blend2D::Imaging
     @core = uninitialized LibBlend2D::BLImageDecoderCore
 
     def initialize(codec : Codec)
+      LibBlend2D.image_decoder_init(pointer)
       LibBlend2D.image_codec_create_decoder(codec.pointer, pointer)
     end
 

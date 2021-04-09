@@ -27,6 +27,7 @@ module Blend2D::C
     fun image_read_from_file = blImageReadFromFile(self : BLImageCore*, fileName : LibC::Char*, codecs : BLArrayCore*) : BLResult
     # fun image_read_from_data = blImageReadFromData(self : BLImageCore*, data, size, codecs)
     fun image_write_to_file = blImageWriteToFile(self : BLImageCore*, fileName : LibC::Char*, codec : BLImageCodecCore*) : BLResult
+    fun image_write_to_data = blImageWriteToData(BLImageCore*, BLArrayCore*, BLImageCodecCore*) : BLResult
 
     # fun image_write_to_data = blImageWriteToData
 
