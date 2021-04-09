@@ -21,7 +21,7 @@ module Blend2D::Imaging
 
     # Initialize an image from an IO.
     def initialize(io : IO)
-      slice = io.to_slice
+      slice = io.gets_to_end.to_slice
       LibBlend2D.image_init(pointer)
       LibBlend2D.image_read_from_data(pointer, Pointer(Void).new(slice.to_unsafe.address), slice.size, nil)
     end
