@@ -302,12 +302,14 @@ module Blend2D::Rendering
 
     # Fill some text given a `PointI`, `Font`, and `String`.
     def fill_text(point : PointI, font : Font, text : String, encoding : TextEncoding = TextEncoding::UTF8)
-      LibBlend2D.context_fill_text_i(pointer, point.pointer, font.pointer, text, text.size, encoding)
+      slice = text.to_slice
+      LibBlend2D.context_fill_text_i(pointer, point.pointer, font.pointer, slice.to_unsafe, slice.size, encoding)
     end
 
     # Fill some text given a `Point`, `Font`, and `String`.
     def fill_text(point : Point, font : Font, text : String, encoding : TextEncoding = TextEncoding::UTF8)
-      LibBlend2D.context_fill_text_d(pointer, point.pointer, font.pointer, text, text.size, encoding)
+      slice = text.to_slice
+      LibBlend2D.context_fill_text_d(pointer, point.pointer, font.pointer, slice.to_unsafe, slice.size, encoding)
     end
 
     # Fill some text given a `PointI`, `Font`, and `GlyphRun`.
@@ -343,12 +345,14 @@ module Blend2D::Rendering
 
     # Stroke some text given a `PointI`, `Font`, and `String`.
     def stroke_text(point : PointI, font : Font, text : String, encoding : TextEncoding = TextEncoding::UTF8)
-      LibBlend2D.context_stroke_text_i(pointer, point.pointer, font.pointer, text, text.size, encoding)
+      slice = text.to_slice
+      LibBlend2D.context_stroke_text_i(pointer, point.pointer, font.pointer, slice.to_unsafe, slice.size, encoding)
     end
 
     # Stroke some text given a `Point`, `Font`, and `String`.
     def stroke_text(point : Point, font : Font, text : String, encoding : TextEncoding = TextEncoding::UTF8)
-      LibBlend2D.context_stroke_text_d(pointer, point.pointer, font.pointer, text, text.size, encoding)
+      slice = text.to_slice
+      LibBlend2D.context_stroke_text_d(pointer, point.pointer, font.pointer, slice.to_unsafe, slice.size, encoding)
     end
 
     # Stroke some text given a `PointI`, `Font`, and `GlyphRun`.
